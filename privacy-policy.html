@@ -58,16 +58,14 @@
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
         </button>
       </div>
-      <nav class="drawer-links">
+            <nav class="drawer-links">
         <a href="index.html" class="nav-link">Home</a>
         <a href="textbook.html?ch=1" class="nav-link">Read Textbook</a>
         <a href="quiz.html?ch=1" class="nav-link">Chapter Quizzes</a>
         <a href="index.html#curriculum" class="nav-link">Course Syllabus</a>
         <a href="index.html#youtube" class="nav-link">Video Curriculum</a>
         <a href="license.html" class="nav-link">MIT License</a>
-        <a href="terms.html" class="nav-link">Terms and Conditions</a>
         <a href="privacy-policy.html" class="nav-link active">Privacy Policy</a>
-        <a href="cookies.html" class="nav-link">Cookie Policy</a>
         <a href="contact.html" class="nav-link">Contact</a>
         <a href="https://github.com/KrunalKorat/FastAPI-Study" class="nav-link" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
       </nav>
@@ -98,15 +96,19 @@
       <div class="terms-meta-info">
         <span><strong>Last Updated:</strong> October 2026</span>
         <span><strong>Scope:</strong> Static Educational Website</span>
-        <span><strong>Repository:</strong> <a href="https://github.com/KrunalKorat/FastAPI-Study" target="_blank" rel="noopener noreferrer" style="color: var(--color-accent-orange);">KrunalKorat/FastAPI-Study</a></span>
+        <span><strong>Repository:</strong> <a href="https://github.com/KrunalKorat/FastAPI-Study" target="_blank" rel="noopener noreferrer" style="color: var(--color-primary-blue);">KrunalKorat/FastAPI-Study</a></span>
       </div>
 
       <!-- Section 1 -->
       <section class="terms-section">
         <h2 class="terms-section-title"><span class="terms-section-num">01.</span> Overview & Educational Philosophy</h2>
         <p class="terms-paragraph">
-          FastAPI Study is a free, open-source educational platform designed to provide a distraction-free digital textbook reading and quiz experience for backend Python developers. We believe that learning technical concepts should never require personal surveillance, commercial profiling, or mandatory user accounts.
+          FastAPI Study is an independent, non-commercial educational project created solely for studying FastAPI and modern Python REST API development. It is completely free to use for personal educational and practice purposes.
         </p>
+        <div class="terms-callout-pill" style="margin-top: 1rem;">
+          <strong>Educational &amp; Non-Commercial Declaration:</strong>
+          This website is not a commercial product, does not sell products, services, or subscriptions, and does not process payments or solicit donations. It is not affiliated with, sponsored by, or endorsed by FastAPI or Sebastián Ramírez.
+        </div>
       </section>
 
       <!-- Section 2: Quiz Data Protection -->
@@ -116,7 +118,7 @@
           The core privacy guarantee of FastAPI Study is that your quiz activity is <strong>strictly transient</strong>:
         </p>
         <ul style="padding-left: 1.5rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 0.75rem;">
-          <li>When you take a quiz on <a href="quiz.html" style="color: var(--color-accent-orange); text-decoration: underline;">quiz.html</a>, your selected answers, text responses, and calculated scores are held exclusively in your browser's temporary JavaScript memory.</li>
+          <li>When you take a quiz on <a href="quiz.html" style="color: var(--color-primary-blue); text-decoration: underline;">quiz.html</a>, your selected answers, text responses, and calculated scores are held exclusively in your browser's temporary JavaScript memory.</li>
           <li>Your quiz answers and scores are <strong>never</strong> saved to <code>localStorage</code>, <code>sessionStorage</code>, <code>IndexedDB</code>, or HTTP cookies.</li>
           <li>No quiz data is ever transmitted across a network, saved to a database, or shared with analytics providers.</li>
           <li>The moment you reload the webpage, close the browser tab, or navigate to another page, all your responses and scores are permanently and irreversibly cleared.</li>
@@ -128,20 +130,23 @@
 
       <!-- Section 3 -->
       <section class="terms-section">
-        <h2 class="terms-section-title"><span class="terms-section-num">03.</span> Information We Collect and Store</h2>
+        <h2 class="terms-section-title"><span class="terms-section-num">03.</span> Technologies &amp; Browser Storage Disclosures</h2>
         <p class="terms-paragraph">
-          As a static website, FastAPI Study does not collect personally identifiable information (PII). There is no user registration, no login form, and no server database.
+          FastAPI Study operates without user accounts, registration forms, or backend databases. We do not track users across websites or sell personal data.
         </p>
         <p class="terms-paragraph">
-          The only data retained on your device consists of two client-side UI preferences in your browser's local storage:
+          The actual technologies and browser storage used by this website are:
         </p>
         <ul style="padding-left: 1.5rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 0.75rem;">
-          <li><code>fastapi_study_theme</code>: Stores your visual reading theme choice (Warm Ivory vs Dark mode).</li>
-          <li><code>fastapi_cookie_consent</code>: Stores your cookie choice ("all" or "essential") so that the consent banner does not repeatedly re-appear on every page navigation.</li>
+          <li><code>fastapi_cookie_consent</code> (Local Storage): Stores your preference choice ("accepted" or "essential") so the consent dialog does not repeatedly re-appear on every page navigation.</li>
+          <li><code>fastapi_reader_font_size</code> (Local Storage): Retains your chosen textbook reader typography size (small, regular, or large) for comfortable reading sessions.</li>
+          <li><strong>Zero Quiz Persistence (Session Memory Only):</strong> Your quiz answers, attempts, and calculated scores live strictly in transient JavaScript browser memory and are permanently discarded when you reload or navigate away.</li>
+          <li><strong>YouTube No-Cookie Video Embeds:</strong> Video curriculum embeds use YouTube's official no-cookie domain (<code>youtube-nocookie.com</code>). YouTube sets cookies only if and when you actively choose to click and play a video.</li>
+          <li><strong>Static Hosting Logs:</strong> Standard web hosting infrastructure (such as Vercel and GitHub Pages) processes transient technical network logs (IP addresses, User-Agent, and timestamps) strictly for security, DDoS protection, and content delivery.</li>
         </ul>
-        <p class="terms-paragraph">
-          For full details, review our interactive <a href="cookies.html" style="color: var(--color-accent-orange); text-decoration: underline;">Cookie Policy & Preferences</a>.
-        </p>
+        <div style="margin-top: 1rem;">
+          <button class="btn btn-secondary btn-sm reopen-cookie-preferences">Open Cookie Preferences Dialog &rarr;</button>
+        </div>
       </section>
 
       <!-- Section 4 -->
@@ -159,7 +164,7 @@
       <section class="terms-section">
         <h2 class="terms-section-title"><span class="terms-section-num">05.</span> External Links & GitHub Integration</h2>
         <p class="terms-paragraph">
-          Our website includes links to our public open-source repository at <a href="https://github.com/KrunalKorat/FastAPI-Study" target="_blank" rel="noopener noreferrer" style="color: var(--color-accent-orange); text-decoration: underline;">https://github.com/KrunalKorat/FastAPI-Study</a>. When navigating to GitHub, your interaction is subject to GitHub's privacy statement and terms of service.
+          Our website includes links to our public open-source repository at <a href="https://github.com/KrunalKorat/FastAPI-Study" target="_blank" rel="noopener noreferrer" style="color: var(--color-primary-blue); text-decoration: underline;">https://github.com/KrunalKorat/FastAPI-Study</a>. When navigating to GitHub, your interaction is subject to GitHub's privacy statement and terms of service.
         </p>
       </section>
 
@@ -167,7 +172,7 @@
       <section class="terms-section">
         <h2 class="terms-section-title"><span class="terms-section-num">06.</span> Direct Email Contact</h2>
         <p class="terms-paragraph">
-          If you choose to contact the creator via email at <a href="mailto:krunalkorat2004@gmail.com" style="color: var(--color-accent-orange); font-family: var(--font-mono); font-weight: 600;">krunalkorat2004@gmail.com</a>, your email address, message body, and metadata will be received in the author's email inbox solely for the purpose of reviewing technical feedback, answering inquiries, and correcting textbook errata. Your email will never be sold, leased, or added to automated marketing lists.
+          If you choose to contact the creator via email at <a href="mailto:krunalkorat2004@gmail.com" style="color: var(--color-primary-blue); font-family: var(--font-mono); font-weight: 600;">krunalkorat2004@gmail.com</a>, your email address, message body, and metadata will be received in the author's email inbox solely for the purpose of reviewing technical feedback, answering inquiries, and correcting textbook errata. Your email will never be sold, leased, or added to automated marketing lists.
         </p>
       </section>
 
@@ -178,7 +183,7 @@
           Because we do not maintain accounts or server databases, you retain complete physical control over any data on your computer:
         </p>
         <ul style="padding-left: 1.5rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 0.75rem;">
-          <li>You can reset or change your cookie preferences at any time via the <a href="cookies.html" style="color: var(--color-accent-orange); text-decoration: underline;">Cookie Preferences</a> page.</li>
+          <li>You can reset or change your cookie preferences at any time via the <a href="cookies.html" style="color: var(--color-primary-blue); text-decoration: underline;">Cookie Preferences</a> page.</li>
           <li>You can clear all site storage instantly by clearing your browser's cache or using your browser developer tools.</li>
           <li>You can browse the website in Private / Incognito browsing mode without any persistent client storage.</li>
         </ul>
@@ -199,25 +204,21 @@
           If you have any questions or feedback regarding this Privacy Policy, please reach out to the creator:
         </p>
         <p class="terms-paragraph">
-          <a href="mailto:krunalkorat2004@gmail.com" style="color: var(--color-accent-orange); font-family: var(--font-mono); font-weight: 600;">krunalkorat2004@gmail.com</a>
+          <a href="mailto:krunalkorat2004@gmail.com" style="color: var(--color-primary-blue); font-family: var(--font-mono); font-weight: 600;">krunalkorat2004@gmail.com</a>
         </p>
       </section>
     </article>
   </main>
 
-  <!-- Global Footer -->
+    <!-- Global Footer -->
   <footer class="site-footer" role="contentinfo">
     <div class="footer-container">
       <div class="footer-top">
         <div class="footer-brand-col">
           <div class="footer-brand">FastAPI <span>Study</span></div>
           <p class="footer-desc">
-            An independent, open-source educational digital textbook and interactive quiz platform for mastering FastAPI and modern Python REST API engineering.
+            An independent educational resource for learning FastAPI and modern Python REST API development. Free for study and practice.
           </p>
-          <div class="footer-privacy-pill">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-            <span>Zero-Tracking Guarantee: Quiz attempts and scores are never saved.</span>
-          </div>
         </div>
 
         <div>
@@ -232,21 +233,18 @@
         </div>
 
         <div>
-          <h4 class="footer-col-title">Legal &amp; Policies</h4>
+          <h4 class="footer-col-title">Project</h4>
           <ul class="footer-links">
+            <li><a href="https://github.com/KrunalKorat/FastAPI-Study" target="_blank" rel="noopener noreferrer">GitHub Repository</a></li>
+            <li><a href="https://github.com/KrunalKorat/FastAPI-Study/issues" target="_blank" rel="noopener noreferrer">Report an Issue</a></li>
             <li><a href="license.html">MIT License</a></li>
-            <li><a href="terms.html">Terms and Conditions</a></li>
             <li><a href="privacy-policy.html">Privacy Policy</a></li>
-            <li><a href="cookies.html">Cookie Policy</a></li>
-            <li><a href="#" class="reopen-cookie-preferences">Cookie Preferences</a></li>
           </ul>
         </div>
 
         <div>
-          <h4 class="footer-col-title">Open Source & Contact</h4>
-          <ul class="footer-links" style="margin-bottom: 1rem;">
-            <li><a href="https://github.com/KrunalKorat/FastAPI-Study" target="_blank" rel="noopener noreferrer">GitHub Repository</a></li>
-            <li><a href="https://github.com/KrunalKorat/FastAPI-Study/issues" target="_blank" rel="noopener noreferrer">Report an Issue</a></li>
+          <h4 class="footer-col-title">Contact</h4>
+          <ul class="footer-links" style="margin-bottom: 0.75rem;">
             <li><a href="contact.html">Contact the Creator</a></li>
           </ul>
           <a href="mailto:krunalkorat2004@gmail.com" class="footer-contact-link">
@@ -258,7 +256,7 @@
 
       <div class="footer-bottom">
         <div>&copy; <span id="current-year">2026</span> FastAPI Study. Released under the MIT License.</div>
-        <div>Not affiliated with or endorsed by FastAPI or Tiangolo. Based on Corey Schafer's tutorial series.</div>
+        <div>Independent educational project. Not affiliated with or endorsed by FastAPI or its maintainers.</div>
       </div>
     </div>
   </footer>

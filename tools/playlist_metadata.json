@@ -1,0 +1,154 @@
+[
+  {
+    "part": 1,
+    "id": "7AMjmCTumuo",
+    "title": "Python FastAPI Tutorial (Part 1): Getting Started - Web App + REST API",
+    "duration": "",
+    "embed_url": "https://www.youtube-nocookie.com/embed/7AMjmCTumuo",
+    "watch_url": "https://www.youtube.com/watch?v=7AMjmCTumuo&list=PL-osiE80TeTsak-c-QsVeg0YYG_0TeyXI&index=1"
+  },
+  {
+    "part": 2,
+    "id": "G4NIB9Rx9Qs",
+    "title": "Python FastAPI Tutorial (Part 2): HTML Frontend for Your API - Jinja2 Templates",
+    "duration": "",
+    "embed_url": "https://www.youtube-nocookie.com/embed/G4NIB9Rx9Qs",
+    "watch_url": "https://www.youtube.com/watch?v=G4NIB9Rx9Qs&list=PL-osiE80TeTsak-c-QsVeg0YYG_0TeyXI&index=2"
+  },
+  {
+    "part": 3,
+    "id": "WRjXIA5pMtk",
+    "title": "Python FastAPI Tutorial (Part 3): Path Parameters - Validation and Error Handling",
+    "duration": "",
+    "embed_url": "https://www.youtube-nocookie.com/embed/WRjXIA5pMtk",
+    "watch_url": "https://www.youtube.com/watch?v=WRjXIA5pMtk&list=PL-osiE80TeTsak-c-QsVeg0YYG_0TeyXI&index=3"
+  },
+  {
+    "part": 4,
+    "id": "9GHxnttXxrA",
+    "title": "Python FastAPI Tutorial (Part 4): Pydantic Schemas - Request and Response Validation",
+    "duration": "",
+    "embed_url": "https://www.youtube-nocookie.com/embed/9GHxnttXxrA",
+    "watch_url": "https://www.youtube.com/watch?v=9GHxnttXxrA&list=PL-osiE80TeTsak-c-QsVeg0YYG_0TeyXI&index=4"
+  },
+  {
+    "part": 5,
+    "id": "NvOV3ig2tGY",
+    "title": "Python FastAPI Tutorial (Part 5): Adding a Database - SQLAlchemy Models and Relationships",
+    "duration": "",
+    "embed_url": "https://www.youtube-nocookie.com/embed/NvOV3ig2tGY",
+    "watch_url": "https://www.youtube.com/watch?v=NvOV3ig2tGY&list=PL-osiE80TeTsak-c-QsVeg0YYG_0TeyXI&index=5"
+  },
+  {
+    "part": 6,
+    "id": "VyoGAoxQhxM",
+    "title": "Python FastAPI Tutorial (Part 6): Completing CRUD - Update and Delete (PUT, PATCH, DELETE)",
+    "duration": "",
+    "embed_url": "https://www.youtube-nocookie.com/embed/VyoGAoxQhxM",
+    "watch_url": "https://www.youtube.com/watch?v=VyoGAoxQhxM&list=PL-osiE80TeTsak-c-QsVeg0YYG_0TeyXI&index=6"
+  },
+  {
+    "part": 7,
+    "id": "2JPDt-Jp6fM",
+    "title": "Python FastAPI Tutorial (Part 7): Sync vs Async - Converting Your App to Asynchronous",
+    "duration": "",
+    "embed_url": "https://www.youtube-nocookie.com/embed/2JPDt-Jp6fM",
+    "watch_url": "https://www.youtube.com/watch?v=2JPDt-Jp6fM&list=PL-osiE80TeTsak-c-QsVeg0YYG_0TeyXI&index=7"
+  },
+  {
+    "part": 8,
+    "id": "NkgIHa6KtHg",
+    "title": "Python FastAPI Tutorial (Part 8): Routers - Organizing Routes into Modules with APIRouter",
+    "duration": "",
+    "embed_url": "https://www.youtube-nocookie.com/embed/NkgIHa6KtHg",
+    "watch_url": "https://www.youtube.com/watch?v=NkgIHa6KtHg&list=PL-osiE80TeTsak-c-QsVeg0YYG_0TeyXI&index=8"
+  },
+  {
+    "part": 9,
+    "id": "vqjZOyT4QRs",
+    "title": "Python FastAPI Tutorial (Part 9): Frontend Forms - Connecting JavaScript to Your API",
+    "duration": "",
+    "embed_url": "https://www.youtube-nocookie.com/embed/vqjZOyT4QRs",
+    "watch_url": "https://www.youtube.com/watch?v=vqjZOyT4QRs&list=PL-osiE80TeTsak-c-QsVeg0YYG_0TeyXI&index=9"
+  },
+  {
+    "part": 10,
+    "id": "Go4wYJJhR3k",
+    "title": "Python FastAPI Tutorial (Part 10): Authentication - Registration and Login with JWT",
+    "duration": "",
+    "embed_url": "https://www.youtube-nocookie.com/embed/Go4wYJJhR3k",
+    "watch_url": "https://www.youtube.com/watch?v=Go4wYJJhR3k&list=PL-osiE80TeTsak-c-QsVeg0YYG_0TeyXI&index=10"
+  },
+  {
+    "part": 11,
+    "id": "MY0TFMMm9B0",
+    "title": "Python FastAPI Tutorial (Part 11): Authorization - Protecting Routes and Verifying Current User",
+    "duration": "",
+    "embed_url": "https://www.youtube-nocookie.com/embed/MY0TFMMm9B0",
+    "watch_url": "https://www.youtube.com/watch?v=MY0TFMMm9B0&list=PL-osiE80TeTsak-c-QsVeg0YYG_0TeyXI&index=11"
+  },
+  {
+    "part": 12,
+    "id": "AExumWjfbyo",
+    "title": "Python FastAPI Tutorial (Part 12): File Uploads - Image Processing, Validation, and Storage",
+    "duration": "",
+    "embed_url": "https://www.youtube-nocookie.com/embed/AExumWjfbyo",
+    "watch_url": "https://www.youtube.com/watch?v=AExumWjfbyo&list=PL-osiE80TeTsak-c-QsVeg0YYG_0TeyXI&index=12"
+  },
+  {
+    "part": 13,
+    "id": "f1zggIOxmJg",
+    "title": "Python FastAPI Tutorial (Part 13): Pagination - Loading More Data with Query Parameters",
+    "duration": "",
+    "embed_url": "https://www.youtube-nocookie.com/embed/f1zggIOxmJg",
+    "watch_url": "https://www.youtube.com/watch?v=f1zggIOxmJg&list=PL-osiE80TeTsak-c-QsVeg0YYG_0TeyXI&index=13"
+  },
+  {
+    "part": 14,
+    "id": "4HxjBvZMAg8",
+    "title": "Python FastAPI Tutorial (Part 14): Password Reset - Email, Tokens, and Background Tasks",
+    "duration": "",
+    "embed_url": "https://www.youtube-nocookie.com/embed/4HxjBvZMAg8",
+    "watch_url": "https://www.youtube.com/watch?v=4HxjBvZMAg8&list=PL-osiE80TeTsak-c-QsVeg0YYG_0TeyXI&index=14"
+  },
+  {
+    "part": 15,
+    "id": "e8NnDz8uT7o",
+    "title": "Python FastAPI Tutorial (Part 15): PostgreSQL and Alembic - Database Migrations for Production",
+    "duration": "",
+    "embed_url": "https://www.youtube-nocookie.com/embed/e8NnDz8uT7o",
+    "watch_url": "https://www.youtube.com/watch?v=e8NnDz8uT7o&list=PL-osiE80TeTsak-c-QsVeg0YYG_0TeyXI&index=15"
+  },
+  {
+    "part": 16,
+    "id": "zCTJ3AdDym4",
+    "title": "Python FastAPI Tutorial (Part 16): AWS S3 and Boto3 - Moving File Uploads to the Cloud",
+    "duration": "",
+    "embed_url": "https://www.youtube-nocookie.com/embed/zCTJ3AdDym4",
+    "watch_url": "https://www.youtube.com/watch?v=zCTJ3AdDym4&list=PL-osiE80TeTsak-c-QsVeg0YYG_0TeyXI&index=16"
+  },
+  {
+    "part": 17,
+    "id": "SO7m7nod0ts",
+    "title": "Python FastAPI Tutorial (Part 17): Testing the API - Pytest, Fixtures, and Mocking External Services",
+    "duration": "",
+    "embed_url": "https://www.youtube-nocookie.com/embed/SO7m7nod0ts",
+    "watch_url": "https://www.youtube.com/watch?v=SO7m7nod0ts&list=PL-osiE80TeTsak-c-QsVeg0YYG_0TeyXI&index=17"
+  },
+  {
+    "part": 18,
+    "id": "wd1wt2d0eus",
+    "title": "Python FastAPI Tutorial (Part 18): Deploy to a VPS - Security, Nginx, SSL, and Custom Domain",
+    "duration": "",
+    "embed_url": "https://www.youtube-nocookie.com/embed/wd1wt2d0eus",
+    "watch_url": "https://www.youtube.com/watch?v=wd1wt2d0eus&list=PL-osiE80TeTsak-c-QsVeg0YYG_0TeyXI&index=18"
+  },
+  {
+    "part": 19,
+    "id": "eqjngvKfabg",
+    "title": "Python FastAPI Tutorial (Part 19): Deploy with Docker - Serverless Containers and Custom Domain",
+    "duration": "",
+    "embed_url": "https://www.youtube-nocookie.com/embed/eqjngvKfabg",
+    "watch_url": "https://www.youtube.com/watch?v=eqjngvKfabg&list=PL-osiE80TeTsak-c-QsVeg0YYG_0TeyXI&index=19"
+  }
+]

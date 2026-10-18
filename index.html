@@ -58,16 +58,14 @@
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
         </button>
       </div>
-      <nav class="drawer-links">
+            <nav class="drawer-links">
         <a href="index.html" class="nav-link active">Home</a>
         <a href="textbook.html?ch=1" class="nav-link">Read Textbook</a>
         <a href="quiz.html?ch=1" class="nav-link">Chapter Quizzes</a>
-        <a href="#curriculum" class="nav-link">Course Syllabus</a>
-        <a href="#youtube" class="nav-link">Video Curriculum</a>
+        <a href="index.html#curriculum" class="nav-link">Course Syllabus</a>
+        <a href="index.html#youtube" class="nav-link">Video Curriculum</a>
         <a href="license.html" class="nav-link">MIT License</a>
-        <a href="terms.html" class="nav-link">Terms and Conditions</a>
         <a href="privacy-policy.html" class="nav-link">Privacy Policy</a>
-        <a href="cookies.html" class="nav-link">Cookie Policy</a>
         <a href="contact.html" class="nav-link">Contact</a>
         <a href="https://github.com/KrunalKorat/FastAPI-Study" class="nav-link" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
       </nav>
@@ -344,403 +342,515 @@ app = FastAPI(title=<span class="c-string">"FastAPI Study API"</span>, version=<
       </div>
     </section>
 
-    <!-- YOUTUBE VIDEO CURRICULUM SECTION (ALWAYS AT THE END) -->
+        <!-- YOUTUBE VIDEO CURRICULUM SECTION (ALWAYS AT THE END) -->
     <section class="youtube-section" id="youtube" aria-labelledby="youtube-heading">
       <div class="youtube-container">
         <div class="youtube-header-row">
           <div>
             <span class="section-label">Video Learning Companion</span>
             <h2 id="youtube-heading" class="section-title">YouTube Video Curriculum (19 Modules)</h2>
-            <p class="section-desc">The video tutorial series corresponding directly to the 19 chapters of this textbook.</p>
+            <p class="section-desc">The official video tutorial series by Corey Schafer, mapping 1-to-1 with every textbook chapter in sequential order.</p>
           </div>
         </div>
 
-        <!-- Verified Status Notice -->
-        <div class="youtube-status-notice">
-          <svg class="youtube-status-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
-          <div class="youtube-status-text">
-            <h4>Video URLs Pending Instructor Supply</h4>
-            <p>
-              In accordance with project integrity standards, zero YouTube links are fabricated. Once official playlist URLs or video IDs are supplied in project configuration, interactive embeds and direct "Watch on YouTube" links will automatically render here.
-            </p>
+        <!-- Featured Master Playlist Player -->
+        <div class="video-featured-player">
+          <div class="video-embed-responsive">
+            <iframe 
+              src="https://www.youtube-nocookie.com/embed/videoseries?list=PL-osiE80TeTsak-c-QsVeg0YYG_0TeyXI" 
+              title="Corey Schafer: Python FastAPI Tutorial Series (Official Playlist)" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+              allowfullscreen 
+              loading="lazy">
+            </iframe>
+          </div>
+          <div class="video-featured-bar">
+            <div class="video-featured-info">
+              <span class="video-playlist-badge">Official Learning Playlist</span>
+              <h3 class="video-featured-title">Corey Schafer &mdash; Python FastAPI Tutorial Series (All 19 Videos)</h3>
+              <p class="video-featured-sub">
+                Watch the full sequential playlist directly in this responsive player or stream individual modules below.
+              </p>
+            </div>
+            <a href="https://www.youtube.com/playlist?list=PL-osiE80TeTsak-c-QsVeg0YYG_0TeyXI" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+              Watch Playlist on YouTube &nearr;
+            </a>
           </div>
         </div>
 
+        <!-- 19 Verified Video Modules -->
         <div class="youtube-grid">
-          <!-- 19 Video Modules in Exact Curriculum Order -->
+
           <div class="video-card">
-            <div class="video-card-thumb-placeholder">
-              <div class="video-play-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-              </div>
-              <span class="video-thumb-label">Video Module 1</span>
+            <div class="video-card-embed-wrap">
+              <iframe 
+                src="https://www.youtube-nocookie.com/embed/7AMjmCTumuo" 
+                title="Python FastAPI Tutorial (Part 1): Getting Started - Web App + REST API" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowfullscreen 
+                loading="lazy">
+              </iframe>
             </div>
             <div class="video-card-body">
               <div>
                 <span class="video-module-badge">Part 1</span>
-                <h4 class="video-card-title">Getting Started — Web App &amp; REST API Basics</h4>
+                <h4 class="video-card-title">Python FastAPI Tutorial (Part 1): Getting Started - Web App + REST API</h4>
               </div>
               <div class="video-card-footer">
-                <span class="video-status-indicator"><span class="video-status-dot"></span>URL Pending</span>
-                <a href="textbook.html?ch=1" class="btn btn-secondary btn-sm">Read Ch 1</a>
+                <a href="https://www.youtube.com/watch?v=7AMjmCTumuo&list=PL-osiE80TeTsak-c-QsVeg0YYG_0TeyXI&index=1" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" aria-label="Watch Part 1 on YouTube">
+                  Watch on YouTube &nearr;
+                </a>
+                <a href="textbook.html?ch=1" class="btn btn-outline btn-sm">Read Ch 1</a>
               </div>
             </div>
           </div>
 
           <div class="video-card">
-            <div class="video-card-thumb-placeholder">
-              <div class="video-play-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-              </div>
-              <span class="video-thumb-label">Video Module 2</span>
+            <div class="video-card-embed-wrap">
+              <iframe 
+                src="https://www.youtube-nocookie.com/embed/G4NIB9Rx9Qs" 
+                title="Python FastAPI Tutorial (Part 2): HTML Frontend for Your API - Jinja2 Templates" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowfullscreen 
+                loading="lazy">
+              </iframe>
             </div>
             <div class="video-card-body">
               <div>
                 <span class="video-module-badge">Part 2</span>
-                <h4 class="video-card-title">Static Files &amp; Jinja2 Templates — SSR</h4>
+                <h4 class="video-card-title">Python FastAPI Tutorial (Part 2): HTML Frontend for Your API - Jinja2 Templates</h4>
               </div>
               <div class="video-card-footer">
-                <span class="video-status-indicator"><span class="video-status-dot"></span>URL Pending</span>
-                <a href="textbook.html?ch=2" class="btn btn-secondary btn-sm">Read Ch 2</a>
+                <a href="https://www.youtube.com/watch?v=G4NIB9Rx9Qs&list=PL-osiE80TeTsak-c-QsVeg0YYG_0TeyXI&index=2" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" aria-label="Watch Part 2 on YouTube">
+                  Watch on YouTube &nearr;
+                </a>
+                <a href="textbook.html?ch=2" class="btn btn-outline btn-sm">Read Ch 2</a>
               </div>
             </div>
           </div>
 
           <div class="video-card">
-            <div class="video-card-thumb-placeholder">
-              <div class="video-play-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-              </div>
-              <span class="video-thumb-label">Video Module 3</span>
+            <div class="video-card-embed-wrap">
+              <iframe 
+                src="https://www.youtube-nocookie.com/embed/WRjXIA5pMtk" 
+                title="Python FastAPI Tutorial (Part 3): Path Parameters - Validation and Error Handling" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowfullscreen 
+                loading="lazy">
+              </iframe>
             </div>
             <div class="video-card-body">
               <div>
                 <span class="video-module-badge">Part 3</span>
-                <h4 class="video-card-title">Path Parameters — Type Validation &amp; Errors</h4>
+                <h4 class="video-card-title">Python FastAPI Tutorial (Part 3): Path Parameters - Validation and Error Handling</h4>
               </div>
               <div class="video-card-footer">
-                <span class="video-status-indicator"><span class="video-status-dot"></span>URL Pending</span>
-                <a href="textbook.html?ch=3" class="btn btn-secondary btn-sm">Read Ch 3</a>
+                <a href="https://www.youtube.com/watch?v=WRjXIA5pMtk&list=PL-osiE80TeTsak-c-QsVeg0YYG_0TeyXI&index=3" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" aria-label="Watch Part 3 on YouTube">
+                  Watch on YouTube &nearr;
+                </a>
+                <a href="textbook.html?ch=3" class="btn btn-outline btn-sm">Read Ch 3</a>
               </div>
             </div>
           </div>
 
           <div class="video-card">
-            <div class="video-card-thumb-placeholder">
-              <div class="video-play-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-              </div>
-              <span class="video-thumb-label">Video Module 4</span>
+            <div class="video-card-embed-wrap">
+              <iframe 
+                src="https://www.youtube-nocookie.com/embed/9GHxnttXxrA" 
+                title="Python FastAPI Tutorial (Part 4): Pydantic Schemas - Request and Response Validation" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowfullscreen 
+                loading="lazy">
+              </iframe>
             </div>
             <div class="video-card-body">
               <div>
                 <span class="video-module-badge">Part 4</span>
-                <h4 class="video-card-title">Data Validation &amp; Schemas with Pydantic v2</h4>
+                <h4 class="video-card-title">Python FastAPI Tutorial (Part 4): Pydantic Schemas - Request and Response Validation</h4>
               </div>
               <div class="video-card-footer">
-                <span class="video-status-indicator"><span class="video-status-dot"></span>URL Pending</span>
-                <a href="textbook.html?ch=4" class="btn btn-secondary btn-sm">Read Ch 4</a>
+                <a href="https://www.youtube.com/watch?v=9GHxnttXxrA&list=PL-osiE80TeTsak-c-QsVeg0YYG_0TeyXI&index=4" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" aria-label="Watch Part 4 on YouTube">
+                  Watch on YouTube &nearr;
+                </a>
+                <a href="textbook.html?ch=4" class="btn btn-outline btn-sm">Read Ch 4</a>
               </div>
             </div>
           </div>
 
           <div class="video-card">
-            <div class="video-card-thumb-placeholder">
-              <div class="video-play-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-              </div>
-              <span class="video-thumb-label">Video Module 5</span>
+            <div class="video-card-embed-wrap">
+              <iframe 
+                src="https://www.youtube-nocookie.com/embed/NvOV3ig2tGY" 
+                title="Python FastAPI Tutorial (Part 5): Adding a Database - SQLAlchemy Models and Relationships" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowfullscreen 
+                loading="lazy">
+              </iframe>
             </div>
             <div class="video-card-body">
               <div>
                 <span class="video-module-badge">Part 5</span>
-                <h4 class="video-card-title">Relational Databases — SQLAlchemy Engine &amp; ORM</h4>
+                <h4 class="video-card-title">Python FastAPI Tutorial (Part 5): Adding a Database - SQLAlchemy Models and Relationships</h4>
               </div>
               <div class="video-card-footer">
-                <span class="video-status-indicator"><span class="video-status-dot"></span>URL Pending</span>
-                <a href="textbook.html?ch=5" class="btn btn-secondary btn-sm">Read Ch 5</a>
+                <a href="https://www.youtube.com/watch?v=NvOV3ig2tGY&list=PL-osiE80TeTsak-c-QsVeg0YYG_0TeyXI&index=5" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" aria-label="Watch Part 5 on YouTube">
+                  Watch on YouTube &nearr;
+                </a>
+                <a href="textbook.html?ch=5" class="btn btn-outline btn-sm">Read Ch 5</a>
               </div>
             </div>
           </div>
 
           <div class="video-card">
-            <div class="video-card-thumb-placeholder">
-              <div class="video-play-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-              </div>
-              <span class="video-thumb-label">Video Module 6</span>
+            <div class="video-card-embed-wrap">
+              <iframe 
+                src="https://www.youtube-nocookie.com/embed/VyoGAoxQhxM" 
+                title="Python FastAPI Tutorial (Part 6): Completing CRUD - Update and Delete (PUT, PATCH, DELETE)" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowfullscreen 
+                loading="lazy">
+              </iframe>
             </div>
             <div class="video-card-body">
               <div>
                 <span class="video-module-badge">Part 6</span>
-                <h4 class="video-card-title">CRUD Operations — PUT, PATCH &amp; DELETE</h4>
+                <h4 class="video-card-title">Python FastAPI Tutorial (Part 6): Completing CRUD - Update and Delete (PUT, PATCH, DELETE)</h4>
               </div>
               <div class="video-card-footer">
-                <span class="video-status-indicator"><span class="video-status-dot"></span>URL Pending</span>
-                <a href="textbook.html?ch=6" class="btn btn-secondary btn-sm">Read Ch 6</a>
+                <a href="https://www.youtube.com/watch?v=VyoGAoxQhxM&list=PL-osiE80TeTsak-c-QsVeg0YYG_0TeyXI&index=6" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" aria-label="Watch Part 6 on YouTube">
+                  Watch on YouTube &nearr;
+                </a>
+                <a href="textbook.html?ch=6" class="btn btn-outline btn-sm">Read Ch 6</a>
               </div>
             </div>
           </div>
 
           <div class="video-card">
-            <div class="video-card-thumb-placeholder">
-              <div class="video-play-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-              </div>
-              <span class="video-thumb-label">Video Module 7</span>
+            <div class="video-card-embed-wrap">
+              <iframe 
+                src="https://www.youtube-nocookie.com/embed/2JPDt-Jp6fM" 
+                title="Python FastAPI Tutorial (Part 7): Sync vs Async - Converting Your App to Asynchronous" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowfullscreen 
+                loading="lazy">
+              </iframe>
             </div>
             <div class="video-card-body">
               <div>
                 <span class="video-module-badge">Part 7</span>
-                <h4 class="video-card-title">Asynchronous Python — Concurrency &amp; Event Loop</h4>
+                <h4 class="video-card-title">Python FastAPI Tutorial (Part 7): Sync vs Async - Converting Your App to Asynchronous</h4>
               </div>
               <div class="video-card-footer">
-                <span class="video-status-indicator"><span class="video-status-dot"></span>URL Pending</span>
-                <a href="textbook.html?ch=7" class="btn btn-secondary btn-sm">Read Ch 7</a>
+                <a href="https://www.youtube.com/watch?v=2JPDt-Jp6fM&list=PL-osiE80TeTsak-c-QsVeg0YYG_0TeyXI&index=7" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" aria-label="Watch Part 7 on YouTube">
+                  Watch on YouTube &nearr;
+                </a>
+                <a href="textbook.html?ch=7" class="btn btn-outline btn-sm">Read Ch 7</a>
               </div>
             </div>
           </div>
 
           <div class="video-card">
-            <div class="video-card-thumb-placeholder">
-              <div class="video-play-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-              </div>
-              <span class="video-thumb-label">Video Module 8</span>
+            <div class="video-card-embed-wrap">
+              <iframe 
+                src="https://www.youtube-nocookie.com/embed/NkgIHa6KtHg" 
+                title="Python FastAPI Tutorial (Part 8): Routers - Organizing Routes into Modules with APIRouter" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowfullscreen 
+                loading="lazy">
+              </iframe>
             </div>
             <div class="video-card-body">
               <div>
                 <span class="video-module-badge">Part 8</span>
-                <h4 class="video-card-title">Enterprise Architecture — Modular APIRouter</h4>
+                <h4 class="video-card-title">Python FastAPI Tutorial (Part 8): Routers - Organizing Routes into Modules with APIRouter</h4>
               </div>
               <div class="video-card-footer">
-                <span class="video-status-indicator"><span class="video-status-dot"></span>URL Pending</span>
-                <a href="textbook.html?ch=8" class="btn btn-secondary btn-sm">Read Ch 8</a>
+                <a href="https://www.youtube.com/watch?v=NkgIHa6KtHg&list=PL-osiE80TeTsak-c-QsVeg0YYG_0TeyXI&index=8" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" aria-label="Watch Part 8 on YouTube">
+                  Watch on YouTube &nearr;
+                </a>
+                <a href="textbook.html?ch=8" class="btn btn-outline btn-sm">Read Ch 8</a>
               </div>
             </div>
           </div>
 
           <div class="video-card">
-            <div class="video-card-thumb-placeholder">
-              <div class="video-play-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-              </div>
-              <span class="video-thumb-label">Video Module 9</span>
+            <div class="video-card-embed-wrap">
+              <iframe 
+                src="https://www.youtube-nocookie.com/embed/vqjZOyT4QRs" 
+                title="Python FastAPI Tutorial (Part 9): Frontend Forms - Connecting JavaScript to Your API" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowfullscreen 
+                loading="lazy">
+              </iframe>
             </div>
             <div class="video-card-body">
               <div>
                 <span class="video-module-badge">Part 9</span>
-                <h4 class="video-card-title">Connecting Frontends — Fetch API &amp; CORS</h4>
+                <h4 class="video-card-title">Python FastAPI Tutorial (Part 9): Frontend Forms - Connecting JavaScript to Your API</h4>
               </div>
               <div class="video-card-footer">
-                <span class="video-status-indicator"><span class="video-status-dot"></span>URL Pending</span>
-                <a href="textbook.html?ch=9" class="btn btn-secondary btn-sm">Read Ch 9</a>
+                <a href="https://www.youtube.com/watch?v=vqjZOyT4QRs&list=PL-osiE80TeTsak-c-QsVeg0YYG_0TeyXI&index=9" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" aria-label="Watch Part 9 on YouTube">
+                  Watch on YouTube &nearr;
+                </a>
+                <a href="textbook.html?ch=9" class="btn btn-outline btn-sm">Read Ch 9</a>
               </div>
             </div>
           </div>
 
           <div class="video-card">
-            <div class="video-card-thumb-placeholder">
-              <div class="video-play-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-              </div>
-              <span class="video-thumb-label">Video Module 10</span>
+            <div class="video-card-embed-wrap">
+              <iframe 
+                src="https://www.youtube-nocookie.com/embed/Go4wYJJhR3k" 
+                title="Python FastAPI Tutorial (Part 10): Authentication - Registration and Login with JWT" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowfullscreen 
+                loading="lazy">
+              </iframe>
             </div>
             <div class="video-card-body">
               <div>
                 <span class="video-module-badge">Part 10</span>
-                <h4 class="video-card-title">JWT Authentication &amp; Password Hashing</h4>
+                <h4 class="video-card-title">Python FastAPI Tutorial (Part 10): Authentication - Registration and Login with JWT</h4>
               </div>
               <div class="video-card-footer">
-                <span class="video-status-indicator"><span class="video-status-dot"></span>URL Pending</span>
-                <a href="textbook.html?ch=10" class="btn btn-secondary btn-sm">Read Ch 10</a>
+                <a href="https://www.youtube.com/watch?v=Go4wYJJhR3k&list=PL-osiE80TeTsak-c-QsVeg0YYG_0TeyXI&index=10" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" aria-label="Watch Part 10 on YouTube">
+                  Watch on YouTube &nearr;
+                </a>
+                <a href="textbook.html?ch=10" class="btn btn-outline btn-sm">Read Ch 10</a>
               </div>
             </div>
           </div>
 
           <div class="video-card">
-            <div class="video-card-thumb-placeholder">
-              <div class="video-play-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-              </div>
-              <span class="video-thumb-label">Video Module 11</span>
+            <div class="video-card-embed-wrap">
+              <iframe 
+                src="https://www.youtube-nocookie.com/embed/MY0TFMMm9B0" 
+                title="Python FastAPI Tutorial (Part 11): Authorization - Protecting Routes and Verifying Current User" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowfullscreen 
+                loading="lazy">
+              </iframe>
             </div>
             <div class="video-card-body">
               <div>
                 <span class="video-module-badge">Part 11</span>
-                <h4 class="video-card-title">Authorization &amp; Role-Based Access Control</h4>
+                <h4 class="video-card-title">Python FastAPI Tutorial (Part 11): Authorization - Protecting Routes and Verifying Current User</h4>
               </div>
               <div class="video-card-footer">
-                <span class="video-status-indicator"><span class="video-status-dot"></span>URL Pending</span>
-                <a href="textbook.html?ch=11" class="btn btn-secondary btn-sm">Read Ch 11</a>
+                <a href="https://www.youtube.com/watch?v=MY0TFMMm9B0&list=PL-osiE80TeTsak-c-QsVeg0YYG_0TeyXI&index=11" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" aria-label="Watch Part 11 on YouTube">
+                  Watch on YouTube &nearr;
+                </a>
+                <a href="textbook.html?ch=11" class="btn btn-outline btn-sm">Read Ch 11</a>
               </div>
             </div>
           </div>
 
           <div class="video-card">
-            <div class="video-card-thumb-placeholder">
-              <div class="video-play-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-              </div>
-              <span class="video-thumb-label">Video Module 12</span>
+            <div class="video-card-embed-wrap">
+              <iframe 
+                src="https://www.youtube-nocookie.com/embed/AExumWjfbyo" 
+                title="Python FastAPI Tutorial (Part 12): File Uploads - Image Processing, Validation, and Storage" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowfullscreen 
+                loading="lazy">
+              </iframe>
             </div>
             <div class="video-card-body">
               <div>
                 <span class="video-module-badge">Part 12</span>
-                <h4 class="video-card-title">File Uploads &amp; Pillow Media Resizing</h4>
+                <h4 class="video-card-title">Python FastAPI Tutorial (Part 12): File Uploads - Image Processing, Validation, and Storage</h4>
               </div>
               <div class="video-card-footer">
-                <span class="video-status-indicator"><span class="video-status-dot"></span>URL Pending</span>
-                <a href="textbook.html?ch=12" class="btn btn-secondary btn-sm">Read Ch 12</a>
+                <a href="https://www.youtube.com/watch?v=AExumWjfbyo&list=PL-osiE80TeTsak-c-QsVeg0YYG_0TeyXI&index=12" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" aria-label="Watch Part 12 on YouTube">
+                  Watch on YouTube &nearr;
+                </a>
+                <a href="textbook.html?ch=12" class="btn btn-outline btn-sm">Read Ch 12</a>
               </div>
             </div>
           </div>
 
           <div class="video-card">
-            <div class="video-card-thumb-placeholder">
-              <div class="video-play-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-              </div>
-              <span class="video-thumb-label">Video Module 13</span>
+            <div class="video-card-embed-wrap">
+              <iframe 
+                src="https://www.youtube-nocookie.com/embed/f1zggIOxmJg" 
+                title="Python FastAPI Tutorial (Part 13): Pagination - Loading More Data with Query Parameters" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowfullscreen 
+                loading="lazy">
+              </iframe>
             </div>
             <div class="video-card-body">
               <div>
                 <span class="video-module-badge">Part 13</span>
-                <h4 class="video-card-title">Query Pagination, Filtering &amp; Search</h4>
+                <h4 class="video-card-title">Python FastAPI Tutorial (Part 13): Pagination - Loading More Data with Query Parameters</h4>
               </div>
               <div class="video-card-footer">
-                <span class="video-status-indicator"><span class="video-status-dot"></span>URL Pending</span>
-                <a href="textbook.html?ch=13" class="btn btn-secondary btn-sm">Read Ch 13</a>
+                <a href="https://www.youtube.com/watch?v=f1zggIOxmJg&list=PL-osiE80TeTsak-c-QsVeg0YYG_0TeyXI&index=13" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" aria-label="Watch Part 13 on YouTube">
+                  Watch on YouTube &nearr;
+                </a>
+                <a href="textbook.html?ch=13" class="btn btn-outline btn-sm">Read Ch 13</a>
               </div>
             </div>
           </div>
 
           <div class="video-card">
-            <div class="video-card-thumb-placeholder">
-              <div class="video-play-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-              </div>
-              <span class="video-thumb-label">Video Module 14</span>
+            <div class="video-card-embed-wrap">
+              <iframe 
+                src="https://www.youtube-nocookie.com/embed/4HxjBvZMAg8" 
+                title="Python FastAPI Tutorial (Part 14): Password Reset - Email, Tokens, and Background Tasks" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowfullscreen 
+                loading="lazy">
+              </iframe>
             </div>
             <div class="video-card-body">
               <div>
                 <span class="video-module-badge">Part 14</span>
-                <h4 class="video-card-title">Background Tasks &amp; Non-Blocking Emails</h4>
+                <h4 class="video-card-title">Python FastAPI Tutorial (Part 14): Password Reset - Email, Tokens, and Background Tasks</h4>
               </div>
               <div class="video-card-footer">
-                <span class="video-status-indicator"><span class="video-status-dot"></span>URL Pending</span>
-                <a href="textbook.html?ch=14" class="btn btn-secondary btn-sm">Read Ch 14</a>
+                <a href="https://www.youtube.com/watch?v=4HxjBvZMAg8&list=PL-osiE80TeTsak-c-QsVeg0YYG_0TeyXI&index=14" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" aria-label="Watch Part 14 on YouTube">
+                  Watch on YouTube &nearr;
+                </a>
+                <a href="textbook.html?ch=14" class="btn btn-outline btn-sm">Read Ch 14</a>
               </div>
             </div>
           </div>
 
           <div class="video-card">
-            <div class="video-card-thumb-placeholder">
-              <div class="video-play-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-              </div>
-              <span class="video-thumb-label">Video Module 15</span>
+            <div class="video-card-embed-wrap">
+              <iframe 
+                src="https://www.youtube-nocookie.com/embed/e8NnDz8uT7o" 
+                title="Python FastAPI Tutorial (Part 15): PostgreSQL and Alembic - Database Migrations for Production" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowfullscreen 
+                loading="lazy">
+              </iframe>
             </div>
             <div class="video-card-body">
               <div>
                 <span class="video-module-badge">Part 15</span>
-                <h4 class="video-card-title">PostgreSQL &amp; Alembic Database Migrations</h4>
+                <h4 class="video-card-title">Python FastAPI Tutorial (Part 15): PostgreSQL and Alembic - Database Migrations for Production</h4>
               </div>
               <div class="video-card-footer">
-                <span class="video-status-indicator"><span class="video-status-dot"></span>URL Pending</span>
-                <a href="textbook.html?ch=15" class="btn btn-secondary btn-sm">Read Ch 15</a>
+                <a href="https://www.youtube.com/watch?v=e8NnDz8uT7o&list=PL-osiE80TeTsak-c-QsVeg0YYG_0TeyXI&index=15" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" aria-label="Watch Part 15 on YouTube">
+                  Watch on YouTube &nearr;
+                </a>
+                <a href="textbook.html?ch=15" class="btn btn-outline btn-sm">Read Ch 15</a>
               </div>
             </div>
           </div>
 
           <div class="video-card">
-            <div class="video-card-thumb-placeholder">
-              <div class="video-play-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-              </div>
-              <span class="video-thumb-label">Video Module 16</span>
+            <div class="video-card-embed-wrap">
+              <iframe 
+                src="https://www.youtube-nocookie.com/embed/zCTJ3AdDym4" 
+                title="Python FastAPI Tutorial (Part 16): AWS S3 and Boto3 - Moving File Uploads to the Cloud" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowfullscreen 
+                loading="lazy">
+              </iframe>
             </div>
             <div class="video-card-body">
               <div>
                 <span class="video-module-badge">Part 16</span>
-                <h4 class="video-card-title">Amazon S3 Cloud Object Storage via Boto3</h4>
+                <h4 class="video-card-title">Python FastAPI Tutorial (Part 16): AWS S3 and Boto3 - Moving File Uploads to the Cloud</h4>
               </div>
               <div class="video-card-footer">
-                <span class="video-status-indicator"><span class="video-status-dot"></span>URL Pending</span>
-                <a href="textbook.html?ch=16" class="btn btn-secondary btn-sm">Read Ch 16</a>
+                <a href="https://www.youtube.com/watch?v=zCTJ3AdDym4&list=PL-osiE80TeTsak-c-QsVeg0YYG_0TeyXI&index=16" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" aria-label="Watch Part 16 on YouTube">
+                  Watch on YouTube &nearr;
+                </a>
+                <a href="textbook.html?ch=16" class="btn btn-outline btn-sm">Read Ch 16</a>
               </div>
             </div>
           </div>
 
           <div class="video-card">
-            <div class="video-card-thumb-placeholder">
-              <div class="video-play-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-              </div>
-              <span class="video-thumb-label">Video Module 17</span>
+            <div class="video-card-embed-wrap">
+              <iframe 
+                src="https://www.youtube-nocookie.com/embed/SO7m7nod0ts" 
+                title="Python FastAPI Tutorial (Part 17): Testing the API - Pytest, Fixtures, and Mocking External Services" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowfullscreen 
+                loading="lazy">
+              </iframe>
             </div>
             <div class="video-card-body">
               <div>
                 <span class="video-module-badge">Part 17</span>
-                <h4 class="video-card-title">Enterprise Testing — Pytest &amp; AsyncClient</h4>
+                <h4 class="video-card-title">Python FastAPI Tutorial (Part 17): Testing the API - Pytest, Fixtures, and Mocking External Services</h4>
               </div>
               <div class="video-card-footer">
-                <span class="video-status-indicator"><span class="video-status-dot"></span>URL Pending</span>
-                <a href="textbook.html?ch=17" class="btn btn-secondary btn-sm">Read Ch 17</a>
+                <a href="https://www.youtube.com/watch?v=SO7m7nod0ts&list=PL-osiE80TeTsak-c-QsVeg0YYG_0TeyXI&index=17" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" aria-label="Watch Part 17 on YouTube">
+                  Watch on YouTube &nearr;
+                </a>
+                <a href="textbook.html?ch=17" class="btn btn-outline btn-sm">Read Ch 17</a>
               </div>
             </div>
           </div>
 
           <div class="video-card">
-            <div class="video-card-thumb-placeholder">
-              <div class="video-play-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-              </div>
-              <span class="video-thumb-label">Video Module 18</span>
+            <div class="video-card-embed-wrap">
+              <iframe 
+                src="https://www.youtube-nocookie.com/embed/wd1wt2d0eus" 
+                title="Python FastAPI Tutorial (Part 18): Deploy to a VPS - Security, Nginx, SSL, and Custom Domain" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowfullscreen 
+                loading="lazy">
+              </iframe>
             </div>
             <div class="video-card-body">
               <div>
                 <span class="video-module-badge">Part 18</span>
-                <h4 class="video-card-title">Linux Production VPS — Nginx, Systemd &amp; SSL</h4>
+                <h4 class="video-card-title">Python FastAPI Tutorial (Part 18): Deploy to a VPS - Security, Nginx, SSL, and Custom Domain</h4>
               </div>
               <div class="video-card-footer">
-                <span class="video-status-indicator"><span class="video-status-dot"></span>URL Pending</span>
-                <a href="textbook.html?ch=18" class="btn btn-secondary btn-sm">Read Ch 18</a>
+                <a href="https://www.youtube.com/watch?v=wd1wt2d0eus&list=PL-osiE80TeTsak-c-QsVeg0YYG_0TeyXI&index=18" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" aria-label="Watch Part 18 on YouTube">
+                  Watch on YouTube &nearr;
+                </a>
+                <a href="textbook.html?ch=18" class="btn btn-outline btn-sm">Read Ch 18</a>
               </div>
             </div>
           </div>
 
           <div class="video-card">
-            <div class="video-card-thumb-placeholder">
-              <div class="video-play-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-              </div>
-              <span class="video-thumb-label">Video Module 19</span>
+            <div class="video-card-embed-wrap">
+              <iframe 
+                src="https://www.youtube-nocookie.com/embed/eqjngvKfabg" 
+                title="Python FastAPI Tutorial (Part 19): Deploy with Docker - Serverless Containers and Custom Domain" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowfullscreen 
+                loading="lazy">
+              </iframe>
             </div>
             <div class="video-card-body">
               <div>
                 <span class="video-module-badge">Part 19</span>
-                <h4 class="video-card-title">Docker Containerization &amp; Docker Compose</h4>
+                <h4 class="video-card-title">Python FastAPI Tutorial (Part 19): Deploy with Docker - Serverless Containers and Custom Domain</h4>
               </div>
               <div class="video-card-footer">
-                <span class="video-status-indicator"><span class="video-status-dot"></span>URL Pending</span>
-                <a href="textbook.html?ch=19" class="btn btn-secondary btn-sm">Read Ch 19</a>
+                <a href="https://www.youtube.com/watch?v=eqjngvKfabg&list=PL-osiE80TeTsak-c-QsVeg0YYG_0TeyXI&index=19" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" aria-label="Watch Part 19 on YouTube">
+                  Watch on YouTube &nearr;
+                </a>
+                <a href="textbook.html?ch=19" class="btn btn-outline btn-sm">Read Ch 19</a>
               </div>
             </div>
           </div>
+
         </div>
       </div>
     </section>
   </main>
 
-  <!-- Global Footer -->
+    <!-- Global Footer -->
   <footer class="site-footer" role="contentinfo">
     <div class="footer-container">
       <div class="footer-top">
         <div class="footer-brand-col">
           <div class="footer-brand">FastAPI <span>Study</span></div>
           <p class="footer-desc">
-            An independent, open-source educational digital textbook and interactive quiz platform for mastering FastAPI and modern Python REST API engineering.
+            An independent educational resource for learning FastAPI and modern Python REST API development. Free for study and practice.
           </p>
         </div>
 
@@ -750,36 +860,36 @@ app = FastAPI(title=<span class="c-string">"FastAPI Study API"</span>, version=<
             <li><a href="index.html">Home</a></li>
             <li><a href="textbook.html?ch=1">Read Textbook</a></li>
             <li><a href="quiz.html?ch=1">Quizzes</a></li>
-            <li><a href="#curriculum">Course Syllabus</a></li>
-            <li><a href="#youtube">Video Curriculum</a></li>
+            <li><a href="index.html#curriculum">Course Syllabus</a></li>
+            <li><a href="index.html#youtube">Video Curriculum</a></li>
           </ul>
         </div>
 
         <div>
-          <h4 class="footer-col-title">Legal &amp; Policies</h4>
+          <h4 class="footer-col-title">Project</h4>
           <ul class="footer-links">
-            <li><a href="license.html">MIT License</a></li>
-            <li><a href="terms.html">Terms and Conditions</a></li>
-            <li><a href="privacy-policy.html">Privacy Policy</a></li>
-            <li><a href="cookies.html">Cookie Policy</a></li>
-            <li><a href="#" class="reopen-cookie-preferences">Cookie Preferences</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <h4 class="footer-col-title">Open Source &amp; Contact</h4>
-          <ul class="footer-links" style="margin-bottom: 0.75rem;">
             <li><a href="https://github.com/KrunalKorat/FastAPI-Study" target="_blank" rel="noopener noreferrer">GitHub Repository</a></li>
             <li><a href="https://github.com/KrunalKorat/FastAPI-Study/issues" target="_blank" rel="noopener noreferrer">Report an Issue</a></li>
+            <li><a href="license.html">MIT License</a></li>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Contact</h4>
+          <ul class="footer-links" style="margin-bottom: 0.75rem;">
             <li><a href="contact.html">Contact the Creator</a></li>
           </ul>
-          <a href="mailto:krunalkorat2004@gmail.com" class="footer-contact-link">krunalkorat2004@gmail.com</a>
+          <a href="mailto:krunalkorat2004@gmail.com" class="footer-contact-link">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            <span>krunalkorat2004@gmail.com</span>
+          </a>
         </div>
       </div>
 
       <div class="footer-bottom">
         <div>&copy; <span id="current-year">2026</span> FastAPI Study. Released under the MIT License.</div>
-        <div>Not affiliated with or endorsed by FastAPI or Tiangolo. Based on Corey Schafer's tutorial series.</div>
+        <div>Independent educational project. Not affiliated with or endorsed by FastAPI or its maintainers.</div>
       </div>
     </div>
   </footer>

@@ -60,8 +60,35 @@
 - [x] Validate responsive behavior on desktop, tablet, and mobile.
 - [x] Run link validation and asset checks (`tools/validate_project.py` and `scratch/validate_site.py`).
 
-## 8. Git Commit & Push
-- [x] Stage all changes.
-- [x] Commit with descriptive message.
+## 8. Initial Release Git Commit & Push
+- [x] Stage initial content and UI changes.
+- [x] Commit with descriptive message (`a19ea53`).
 - [x] Push to `https://github.com/KrunalKorat/FastAPI-Study.git`.
-- [x] Provide detailed final report.
+
+## 9. Footer, Cookie Popup, Video Playback, and Study-Only Policies Fixes
+- [x] Redesign footer across all HTML pages:
+  - Content structure: Brand & educational disclaimer, Navigation (Home, Read Textbook, Quizzes, Course Syllabus, Video Curriculum), Project (GitHub, Report Issue, MIT License, Privacy Policy), Contact (Creator email).
+  - Copyright: `© 2026 FastAPI Study. Released under the MIT License.`
+  - Short disclaimer: `Independent educational project. Not affiliated with or endorsed by FastAPI or its maintainers.`
+  - Removed redundant Cookie Policy, Cookie Preferences, and Terms links from the footer.
+- [x] Fix Cookie Notice Popup:
+  - Redesigned as a polished, compact floating card at bottom-right on desktop (360px), and responsive bottom sheet on mobile.
+  - White background, subtle border, rounded corners, blue primary action (`Accept Preferences`), secondary action (`Essential Only`), and accessible close button.
+  - Heading: `Privacy & Cookie Preferences`.
+  - Body: `This educational website uses only the browser storage and technologies needed for its actual functionality. Choose whether to save your preferences.`
+  - Persists preference in `localStorage.setItem('fastapi_cookie_consent', ...)` so it does not return repeatedly on navigation.
+  - Accessible reopen control via `.reopen-cookie-preferences`.
+- [x] Fix YouTube Video Playback:
+  - Discovered and verified official playlist: `PL-osiE80TeTsak-c-QsVeg0YYG_0TeyXI` (Corey Schafer's Python FastAPI Tutorial Series).
+  - Extracted all 19 video IDs directly from YouTube playlist metadata matching the 19 chapters 1-to-1 in exact order.
+  - Verified all 19 video IDs are 100% public and embeddable via YouTube oEmbed API check (all HTTP 200).
+  - Added Featured Master Playlist Player with responsive 16:9 embed (`https://www.youtube-nocookie.com/embed/videoseries?list=PL-osiE80TeTsak-c-QsVeg0YYG_0TeyXI`).
+  - Added 19 responsive 16:9 video embed cards using `https://www.youtube-nocookie.com/embed/{VIDEO_ID}` with complete permissions (`allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"` and `allowfullscreen`).
+  - Added direct "Watch on YouTube" fallback links and "Read Ch X" textbook links on every module card.
+- [x] Study-Only Policies & Commercial Content Removal:
+  - Ensured zero references to purchasing, selling, paid subscriptions, checkout, or billing.
+  - Added explicit non-commercial declarations in `privacy-policy.html` and `terms.html`.
+  - Accurately disclosed browser storage technologies (`fastapi_cookie_consent`, `fastapi_reader_font_size`, transient in-memory quiz attempts, YouTube no-cookie embeds, and static hosting logs).
+- [x] Verification & Push:
+  - Run project validation script.
+  - Commit and push changes to GitHub repository.

@@ -127,87 +127,104 @@
     });
   }
 
-  // Cookie Consent Experience
+  // ==========================================================================
+  // COOKIE CONSENT DIALOG (COMPACT FLOATING CARD)
+  // ==========================================================================
   function initCookieConsent() {
-    let banner = document.getElementById('cookie-consent-banner');
+    let dialog = document.getElementById('cookie-consent-dialog');
     
-    if (!banner) {
-      banner = document.createElement('div');
-      banner.id = 'cookie-consent-banner';
-      banner.className = 'cookie-consent-banner';
-      banner.setAttribute('role', 'region');
-      banner.setAttribute('aria-label', 'Cookie Consent');
-      banner.innerHTML = `
-        <div class="cookie-header-row">
-          <div class="cookie-illustration" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="12" cy="12" r="10"></circle>
-              <circle cx="8" cy="9" r="1.5" fill="currentColor"></circle>
-              <circle cx="15" cy="8" r="1" fill="currentColor"></circle>
-              <circle cx="10" cy="15" r="1" fill="currentColor"></circle>
-              <circle cx="16" cy="14" r="1.5" fill="currentColor"></circle>
-            </svg>
+    if (!dialog) {
+      dialog = document.createElement('div');
+      dialog.id = 'cookie-consent-dialog';
+      dialog.className = 'cookie-dialog';
+      dialog.setAttribute('role', 'dialog');
+      dialog.setAttribute('aria-labelledby', 'cookie-dialog-title');
+      dialog.setAttribute('aria-describedby', 'cookie-dialog-desc');
+      dialog.innerHTML = `
+        <div class="cookie-dialog-header">
+          <div class="cookie-dialog-title-wrap">
+            <div class="cookie-dialog-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <circle cx="8" cy="9" r="1.5" fill="currentColor"></circle>
+                <circle cx="15" cy="8" r="1" fill="currentColor"></circle>
+                <circle cx="10" cy="15" r="1" fill="currentColor"></circle>
+                <circle cx="16" cy="14" r="1.5" fill="currentColor"></circle>
+              </svg>
+            </div>
+            <h3 id="cookie-dialog-title" class="cookie-dialog-title">Privacy &amp; Cookie Preferences</h3>
           </div>
-          <h3 class="cookie-headline">Privacy &amp; Cookie Notice 🍪</h3>
+          <button id="cookie-dialog-close" class="cookie-dialog-close" aria-label="Close preferences dialog">&times;</button>
         </div>
-        <p class="cookie-body-text">
-          FastAPI Study never tracks your quizzes or stores scores. Can we remember your privacy preferences in your browser?
+        <p id="cookie-dialog-desc" class="cookie-dialog-desc">
+          This educational website uses only the browser storage and technologies needed for its actual functionality. Choose whether to save your preferences.
         </p>
-        <div class="cookie-actions-group">
-          <div class="cookie-btn-row">
-            <button class="btn btn-primary btn-sm" id="cookie-accept-btn">Accept Preferences</button>
-            <button class="btn btn-secondary btn-sm" id="cookie-essential-btn">Essential Only</button>
-          </div>
-          <a href="cookies.html" class="nav-link" style="font-size: 0.8125rem;">Cookie Policy</a>
+        <div class="cookie-dialog-actions">
+          <button class="btn btn-primary btn-sm" id="cookie-accept-btn">Accept Preferences</button>
+          <button class="btn btn-secondary btn-sm" id="cookie-essential-btn">Essential Only</button>
         </div>
       `;
-      document.body.appendChild(banner);
+      document.body.appendChild(dialog);
     }
 
     const savedChoice = localStorage.getItem('fastapi_cookie_consent');
-    if (!savedChoice) {
+    const isDismissed = sessionStorage.getItem('fastapi_cookie_dismissed');
+
+    if (!savedChoice && !isDismissed) {
       setTimeout(() => {
-        banner.classList.add('visible');
-      }, 700);
+        dialog.classList.add('visible');
+      }, 500);
     }
 
+    // Accept Preferences
     const acceptBtn = document.getElementById('cookie-accept-btn');
     if (acceptBtn) {
       acceptBtn.addEventListener('click', () => {
-        localStorage.setItem('fastapi_cookie_consent', 'all');
-        banner.classList.remove('visible');
+        localStorage.setItem('fastapi_cookie_consent', 'accepted');
+        dialog.classList.remove('visible');
         if (window.FastAPIAnimations) {
-          window.FastAPIAnimations.showToast('Preferences saved. Quiz answers remain completely private and unsaved.');
+          window.FastAPIAnimations.showToast('Preferences saved.');
         }
         updateConsentBadges();
       });
     }
 
+    // Essential Only
     const essentialBtn = document.getElementById('cookie-essential-btn');
     if (essentialBtn) {
       essentialBtn.addEventListener('click', () => {
         localStorage.setItem('fastapi_cookie_consent', 'essential');
-        banner.classList.remove('visible');
+        dialog.classList.remove('visible');
         if (window.FastAPIAnimations) {
-          window.FastAPIAnimations.showToast('Essential cookies only enabled.');
+          window.FastAPIAnimations.showToast('Essential storage only enabled.');
         }
         updateConsentBadges();
       });
     }
 
+    // Close button dismisses for session
+    const closeBtn = document.getElementById('cookie-dialog-close');
+    if (closeBtn) {
+      closeBtn.addEventListener('click', () => {
+        sessionStorage.setItem('fastapi_cookie_dismissed', 'true');
+        dialog.classList.remove('visible');
+      });
+    }
+
+    // Reopen Preferences links
     const reopenBtns = document.querySelectorAll('.reopen-cookie-preferences');
     reopenBtns.forEach(btn => {
       btn.addEventListener('click', (e) => {
         e.preventDefault();
-        openCookieConsentBanner();
+        openCookieConsentDialog();
       });
     });
   }
 
-  function openCookieConsentBanner() {
-    const banner = document.getElementById('cookie-consent-banner');
-    if (banner) {
-      banner.classList.add('visible');
+  function openCookieConsentDialog() {
+    const dialog = document.getElementById('cookie-consent-dialog');
+    if (dialog) {
+      dialog.classList.add('visible');
     }
   }
 
@@ -215,14 +232,14 @@
     const statusEl = document.getElementById('current-consent-status');
     if (!statusEl) return;
     const choice = localStorage.getItem('fastapi_cookie_consent');
-    if (choice === 'all') {
-      statusEl.textContent = 'Optional Cookies Accepted';
+    if (choice === 'accepted' || choice === 'all') {
+      statusEl.textContent = 'Preferences Saved (Accepted)';
       statusEl.className = 'consent-status-badge accepted';
     } else if (choice === 'essential') {
-      statusEl.textContent = 'Essential Cookies Only';
+      statusEl.textContent = 'Essential Storage Only';
       statusEl.className = 'consent-status-badge essential';
     } else {
-      statusEl.textContent = 'Consent Not Yet Set';
+      statusEl.textContent = 'Consent Not Set';
       statusEl.className = 'consent-status-badge pending';
     }
   }
