@@ -279,9 +279,9 @@
             <span class="nav-dir-title" style="text-align: right;">Ch ${nextCh.id}: ${nextCh.cleanTitle}</span>
           </a>
         ` : `
-          <a href="index.html#youtube" class="nav-direction-card next-card">
-            <span class="nav-dir-label" style="text-align: right;">Course Completion →</span>
-            <span class="nav-dir-title" style="text-align: right;">19-Part Video Curriculum</span>
+          <a href="https://www.youtube.com/playlist?list=PL-osiE80TeTsak-c-QsVeg0YYG_0TeyXI" target="_blank" rel="noopener noreferrer" class="nav-direction-card next-card">
+            <span class="nav-dir-label" style="text-align: right;">Supplementary Videos →</span>
+            <span class="nav-dir-title" style="text-align: right;">Corey Schafer YouTube Playlist &nearr;</span>
           </a>
         `}
       </nav>

@@ -30,7 +30,6 @@
         <a href="textbook.html?ch=1" class="nav-link">Read Textbook</a>
         <a href="quiz.html?ch=1" class="nav-link active">Quizzes</a>
         <a href="index.html#curriculum" class="nav-link">Syllabus</a>
-        <a href="index.html#youtube" class="nav-link">Video Curriculum</a>
         <a href="license.html" class="nav-link">License</a>
         <a href="https://github.com/KrunalKorat/FastAPI-Study" class="nav-link" target="_blank" rel="noopener noreferrer">GitHub</a>
       </nav>
@@ -58,12 +57,11 @@
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
         </button>
       </div>
-            <nav class="drawer-links">
+      <nav class="drawer-links">
         <a href="index.html" class="nav-link">Home</a>
         <a href="textbook.html?ch=1" class="nav-link">Read Textbook</a>
         <a href="quiz.html?ch=1" class="nav-link">Chapter Quizzes</a>
         <a href="index.html#curriculum" class="nav-link">Course Syllabus</a>
-        <a href="index.html#youtube" class="nav-link">Video Curriculum</a>
         <a href="license.html" class="nav-link">MIT License</a>
         <a href="privacy-policy.html" class="nav-link">Privacy Policy</a>
         <a href="contact.html" class="nav-link">Contact</a>
@@ -89,7 +87,7 @@
       <h1 class="quiz-main-title" id="quiz-title-display">Chapter 1: Getting Started — Web App &amp; REST API Basics</h1>
 
       <div class="quiz-meta-pills">
-        <div class="quiz-pill" id="quiz-total-pill">10 MCQs + Assessment</div>
+        <div class="quiz-pill" id="quiz-total-pill">25 Questions (15 Auto-Graded)</div>
         <div class="quiz-pill privacy">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
           <span>100% In-Memory Privacy (Zero Persistence)</span>
@@ -97,17 +95,22 @@
       </div>
     </section>
 
-    <!-- Quiz Stepper Runner View -->
+    <!-- 1. Quiz Stepper Runner View -->
     <section id="quiz-runner-view" class="quiz-stepper-box" aria-label="Active Quiz Questions">
       <div class="quiz-progress-header">
         <div class="quiz-step-info-row">
-          <span id="quiz-step-counter">Question 1 of 10</span>
+          <span id="quiz-step-counter">Question 1 of 25</span>
           <span class="quiz-category-tag" id="quiz-step-category">Multiple-Choice Question</span>
         </div>
         <div class="quiz-progress-track" aria-hidden="true">
           <div class="quiz-progress-fill" id="quiz-progress-fill"></div>
         </div>
       </div>
+
+      <!-- Jump Dots Navigation Bar (1 to 25) -->
+      <nav class="quiz-nav-dots-wrap" id="quiz-quick-nav-pills" aria-label="Question Navigation Dots">
+        <!-- Rendered dynamically by quiz.js -->
+      </nav>
 
       <!-- Active Question Container -->
       <div class="quiz-question-body" id="quiz-stepper-container">
@@ -116,32 +119,75 @@
 
       <!-- Stepper Footer Action Controls -->
       <footer class="quiz-footer-actions">
-        <button class="btn btn-secondary btn-sm" id="quiz-prev-btn" disabled>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
-          <span>Previous</span>
-        </button>
-        <button class="btn btn-secondary btn-sm" id="quiz-review-shortcut-btn" title="Review all answers before submitting">
-          <span>Review</span>
-        </button>
-        <button class="btn btn-primary btn-sm" id="quiz-next-btn">
-          <span>Next</span>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
-        </button>
+        <div class="quiz-footer-left-group">
+          <button class="btn btn-secondary btn-sm" id="quiz-prev-btn" disabled>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            <span>Previous</span>
+          </button>
+          <button class="btn btn-secondary btn-sm" id="quiz-review-shortcut-btn" title="Review all questions and answers">
+            <span>Review</span>
+          </button>
+        </div>
+        <div class="quiz-footer-right-group">
+          <button class="btn btn-secondary btn-sm" id="quiz-check-answer-btn" title="Validate and inspect answer for this question">
+            <span>Check Answer</span>
+          </button>
+          <button class="btn btn-primary btn-sm" id="quiz-next-btn">
+            <span>Next</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </button>
+        </div>
       </footer>
     </section>
 
-    <!-- Quiz Results View (Shown after submission) -->
+    <!-- 2. Question Review Screen View (Dedicated full review before final submission) -->
+    <section id="quiz-review-view" class="quiz-review-container" style="display: none;" aria-label="Quiz Question Review">
+      <div class="review-header-card">
+        <div class="review-header-info">
+          <span class="quiz-part-label" id="review-part-display">Quiz Review</span>
+          <h2 class="review-title" id="review-title-display">Review Chapter Answers</h2>
+          <p class="review-summary-text" id="review-summary-display">You have answered 0 of 25 questions.</p>
+        </div>
+        <div class="review-header-actions">
+          <button class="btn btn-secondary" id="review-return-quiz-btn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            <span>Return to Quiz</span>
+          </button>
+          <button class="btn btn-primary" id="review-finish-quiz-btn">
+            <span>Finish &amp; Grade Quiz</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="review-questions-list" id="review-questions-list">
+        <!-- Rendered dynamically by quiz.js -->
+      </div>
+
+      <div class="review-bottom-card">
+        <button class="btn btn-secondary" id="review-bottom-return-btn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+          <span>Return to Quiz</span>
+        </button>
+        <button class="btn btn-primary" id="review-bottom-finish-btn">
+          <span>Finish &amp; Grade Quiz</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
+      </div>
+    </section>
+
+    <!-- 3. Quiz Results View (Shown after submission) -->
     <section id="quiz-results-view" class="quiz-results-container" style="display: none;" aria-label="Quiz Results and Review">
       <!-- Rendered dynamically by quiz.js -->
     </section>
   </main>
 
-  <!-- Review & Submit Confirmation Modal -->
+  <!-- Unanswered Warning / Confirm Submission Modal -->
   <div class="search-modal-backdrop" id="quiz-review-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
     <div class="search-dialog" style="padding: 1.75rem;">
       <div style="margin-bottom: 1.25rem;">
-        <h3 id="modal-title" style="font-size: 1.25rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.35rem;">Ready to Submit Quiz?</h3>
-        <p style="font-size: 0.875rem; color: var(--text-secondary); margin: 0;">Review your completion status before calculating your final score.</p>
+        <h3 id="modal-title" style="font-size: 1.25rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.35rem;">Submit and Grade Quiz?</h3>
+        <p style="font-size: 0.875rem; color: var(--text-secondary); margin: 0;">Confirm your submission status before calculating your final score.</p>
       </div>
 
       <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.25rem;">
@@ -166,7 +212,7 @@
     </div>
   </div>
 
-    <!-- Global Footer -->
+  <!-- Global Footer -->
   <footer class="site-footer" role="contentinfo">
     <div class="footer-container">
       <div class="footer-top">
@@ -184,7 +230,6 @@
             <li><a href="textbook.html?ch=1">Read Textbook</a></li>
             <li><a href="quiz.html?ch=1">Quizzes</a></li>
             <li><a href="index.html#curriculum">Course Syllabus</a></li>
-            <li><a href="index.html#youtube">Video Curriculum</a></li>
           </ul>
         </div>
 

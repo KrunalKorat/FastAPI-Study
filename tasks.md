@@ -92,3 +92,31 @@
 - [x] Verification & Push:
   - Run project validation script.
   - Commit and push changes to GitHub repository.
+
+## 10. Interactive Quiz Architecture Overhaul & Video Curriculum Removal
+- [x] Fix Broken Quiz Functionality:
+  - Root cause diagnosed: Class name mismatch between `quiz.js` (`option-card`, `option-radio-key`, `option-label-text`) and `quiz.css` (`quiz-option-item`, `quiz-option-key`, `quiz-option-text`) caused answer choices to render as unstyled plain text lines.
+  - Re-implemented with accessible `<label class="quiz-option-card">` wrapping native `<input type="radio" class="quiz-option-radio">` with styled badges (`.quiz-option-badge`) and label text.
+  - Added subtle blue background (`#f0f7ff`) and border (`var(--color-primary)`) on selected answer choice.
+  - Full keyboard, touch, and mouse support (radio keyboard arrows, tab, spacebar, click).
+  - Selected answers persist cleanly in memory (`quizState.answers`) while navigating freely between questions.
+  - Previous and Next buttons properly wired (Previous disabled on Q1, Next transitions to Review on Q25).
+  - Check Answer button validates selection and provides instant correct/incorrect feedback with textbook explanations.
+- [x] Complete 25 Questions per Chapter:
+  - Completed all 25 questions for Chapters 11–18 in `assets/content/textbook-content.js`.
+  - Every single chapter (1 to 19) now has exactly 25 questions (10 MCQs, 5 True/False, 5 Short Answer, 3 Debugging, 2 Challenges) totaling 475 questions with verified answer keys.
+  - Authoritative line-by-line explanations added for all True/False and MCQ items.
+- [x] Full Question Review Screen & Navigation:
+  - Built dedicated `#quiz-review-view` screen showing all 25 questions with answered/unanswered status.
+  - Added "Return to Quiz" button to return to current question.
+  - Added "Edit Question X" jump buttons for each question item to jump directly to any question.
+  - Added confirmation modal if user attempts to finish with unanswered questions.
+  - Added "Retry Quiz" button to reset attempt in memory, reset answers and score, and start fresh at Question 1.
+- [x] Remove Video Curriculum Section:
+  - Completely removed `<section class="youtube-section" id="youtube">` and all 19 embedded iframes from `index.html`.
+  - Replaced with clean, uncluttered Supplementary Resources card featuring simple text link to Corey Schafer's official YouTube playlist (`https://www.youtube.com/playlist?list=PL-osiE80TeTsak-c-QsVeg0YYG_0TeyXI`).
+  - Removed "Video Curriculum" navigation link from headers, mobile drawers, and footers across all HTML files.
+  - Cleaned up obsolete video embed CSS in `assets/css/home.css`.
+- [x] Verification & Tests:
+  - Ran `tools/validate_project.py` (0 errors).
+  - Ran `tools/test_quiz_engine.py` (validated all 19 chapters, 475 questions, HTML controls, CSS rules, and JS engine).

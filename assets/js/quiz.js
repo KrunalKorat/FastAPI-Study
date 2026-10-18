@@ -1,6 +1,7 @@
 /**
  * FastAPI Study — Chapter Quiz Controller (quiz.js)
- * Interactive question stepper, instant grading, and review mode.
+ * Fully interactive question stepper, accessible radio options,
+ * comprehensive review screen, instant verified grading, and in-memory retry.
  * 
  * ABSOLUTE PRIVACY GUARANTEE:
  * Active quiz state and answers reside strictly in JavaScript memory.
@@ -15,7 +16,8 @@
   let quizState = {
     chapterId: 1,
     questionsList: [],
-    answers: {},       // questionKey -> value
+    answers: {},           // questionKey -> value ('A', 'B', true, false, string)
+    checkedQuestions: {},  // questionKey -> boolean (whether question feedback was inspected)
     currentStep: 0,
     isSubmitted: false
   };
@@ -26,7 +28,7 @@
       return;
     }
 
-    // Parse URL parameter ?ch=X
+    // Parse URL parameter ?ch=X (1 to 19)
     const urlParams = new URLSearchParams(window.location.search);
     const chParam = parseInt(urlParams.get('ch'), 10);
     if (!isNaN(chParam) && chParam >= 1 && chParam <= 19) {
@@ -35,17 +37,17 @@
       quizState.chapterId = 1;
     }
 
-    // Populate Chapter Selector Dropdown
+    // Populate Chapter Selector Dropdown (All 19 Chapters)
     populateChapterDropdown();
 
-    // Load and Start Quiz for chapter
+    // Start Quiz for Chapter
     startQuizForChapter(quizState.chapterId);
 
-    // Setup Modal Confirmation Handlers
-    setupReviewModal();
+    // Setup Event Listeners for Stepper, Review & Confirmation
+    setupGlobalQuizEvents();
   }
 
-  // Populate Chapter Dropdown with available quizzes (Chapters 5 to 18)
+  // Populate Chapter Dropdown with all available chapters (1 to 19)
   function populateChapterDropdown() {
     const selectEl = document.getElementById('quiz-chapter-select');
     if (!selectEl) return;
@@ -78,12 +80,13 @@
     const chapter = chapters.find(c => c.id === chapterId);
     if (!chapter || !chapter.quiz) return;
 
-    // Reset memory state
+    // Reset memory state completely
     quizState.answers = {};
+    quizState.checkedQuestions = {};
     quizState.currentStep = 0;
     quizState.isSubmitted = false;
 
-    // Build unified linear list of questions
+    // Build unified linear list of all 25 questions
     const qList = [];
     const quiz = chapter.quiz;
 
@@ -166,12 +169,11 @@
 
     quizState.questionsList = qList;
 
-    // Update Header
+    // Update Header Text and Pills
     updateQuizHeader(chapter);
 
-    // Switch view to Runner
-    document.getElementById('quiz-runner-view').style.display = 'block';
-    document.getElementById('quiz-results-view').style.display = 'none';
+    // Switch view to Question Runner
+    showRunnerView();
 
     // Render Current Step
     renderCurrentQuestion();
@@ -191,6 +193,39 @@
     }
   }
 
+  // Switch between Runner, Review, and Results views
+  function showRunnerView() {
+    const runner = document.getElementById('quiz-runner-view');
+    const review = document.getElementById('quiz-review-view');
+    const results = document.getElementById('quiz-results-view');
+    if (runner) runner.style.display = 'block';
+    if (review) review.style.display = 'none';
+    if (results) results.style.display = 'none';
+  }
+
+  function showReviewView() {
+    const runner = document.getElementById('quiz-runner-view');
+    const review = document.getElementById('quiz-review-view');
+    const results = document.getElementById('quiz-results-view');
+    if (runner) runner.style.display = 'none';
+    if (review) review.style.display = 'block';
+    if (results) results.style.display = 'none';
+
+    renderReviewScreen();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function showResultsView() {
+    const runner = document.getElementById('quiz-runner-view');
+    const review = document.getElementById('quiz-review-view');
+    const results = document.getElementById('quiz-results-view');
+    if (runner) runner.style.display = 'none';
+    if (review) review.style.display = 'none';
+    if (results) results.style.display = 'block';
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
   // Render Current Question Card in Stepper
   function renderCurrentQuestion() {
     const container = document.getElementById('quiz-stepper-container');
@@ -201,76 +236,161 @@
     const progressPercent = ((quizState.currentStep + 1) / total) * 100;
 
     // Update Step Counters
-    document.getElementById('quiz-step-counter').textContent = `Question ${quizState.currentStep + 1} of ${total}`;
-    document.getElementById('quiz-step-category').textContent = q.category;
-    document.getElementById('quiz-progress-fill').style.width = `${progressPercent}%`;
+    const stepCounterEl = document.getElementById('quiz-step-counter');
+    const stepCategoryEl = document.getElementById('quiz-step-category');
+    const progressFillEl = document.getElementById('quiz-progress-fill');
 
-    // Render Question Body
+    if (stepCounterEl) stepCounterEl.textContent = `Question ${quizState.currentStep + 1} of ${total}`;
+    if (stepCategoryEl) stepCategoryEl.textContent = q.category;
+    if (progressFillEl) progressFillEl.style.width = `${progressPercent}%`;
+
+    const isChecked = quizState.checkedQuestions[q.key] === true;
+    const userVal = quizState.answers[q.key];
+
+    // Build Question Body HTML
     let qBodyHtml = `
       <div class="question-text-title">${escapeHtml(q.question)}</div>
     `;
 
-    // Render Answer Input depending on type
+    // 1. Multiple Choice Questions
     if (q.type === 'mcq') {
-      qBodyHtml += `<div class="options-list-grid">`;
+      qBodyHtml += `<div class="quiz-options-list" role="radiogroup" aria-label="Multiple Choice Options">`;
       q.options.forEach(opt => {
-        const isSelected = quizState.answers[q.key] === opt.key ? 'selected' : '';
+        const isSelected = userVal === opt.key;
+        let stateClass = isSelected ? 'selected' : '';
+
+        // If user requested instant feedback or quiz is submitted, highlight correctness
+        if (isChecked || quizState.isSubmitted) {
+          if (opt.key === q.correctAnswer) {
+            stateClass += ' correct';
+          } else if (isSelected && opt.key !== q.correctAnswer) {
+            stateClass += ' incorrect';
+          }
+        }
+
         qBodyHtml += `
-          <div class="option-card ${isSelected}" data-key="${opt.key}" tabindex="0" role="radio" aria-checked="${isSelected === 'selected'}">
-            <span class="option-radio-key">${opt.key}</span>
-            <span class="option-label-text">${escapeHtml(opt.text)}</span>
-          </div>
+          <label class="quiz-option-card ${stateClass}" for="opt-${q.key}-${opt.key}">
+            <input type="radio" 
+                   id="opt-${q.key}-${opt.key}" 
+                   name="quiz-answer-${q.key}" 
+                   value="${opt.key}" 
+                   class="quiz-option-radio"
+                   ${isSelected ? 'checked' : ''}
+                   ${quizState.isSubmitted ? 'disabled' : ''}>
+            <span class="quiz-option-badge">${opt.key}</span>
+            <span class="quiz-option-label">${escapeHtml(opt.text)}</span>
+          </label>
         `;
       });
       qBodyHtml += `</div>`;
-    } else if (q.type === 'tf') {
-      const selectedVal = quizState.answers[q.key];
+    }
+    // 2. True or False Questions
+    else if (q.type === 'tf') {
+      const isTrueSelected = userVal === true;
+      const isFalseSelected = userVal === false;
+
+      let trueClass = isTrueSelected ? 'selected' : '';
+      let falseClass = isFalseSelected ? 'selected' : '';
+
+      if (isChecked || quizState.isSubmitted) {
+        if (q.correctAnswer === true) {
+          trueClass += ' correct';
+          if (isFalseSelected) falseClass += ' incorrect';
+        } else {
+          falseClass += ' correct';
+          if (isTrueSelected) trueClass += ' incorrect';
+        }
+      }
+
       qBodyHtml += `
-        <div class="tf-options-row">
-          <button class="tf-btn ${selectedVal === true ? 'selected' : ''}" data-val="true">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            <span>True</span>
-          </button>
-          <button class="tf-btn ${selectedVal === false ? 'selected' : ''}" data-val="false">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-            <span>False</span>
-          </button>
+        <div class="quiz-options-list" role="radiogroup" aria-label="True or False Options">
+          <label class="quiz-option-card ${trueClass}" for="opt-${q.key}-true">
+            <input type="radio" 
+                   id="opt-${q.key}-true" 
+                   name="quiz-answer-${q.key}" 
+                   value="true" 
+                   class="quiz-option-radio"
+                   ${isTrueSelected ? 'checked' : ''}
+                   ${quizState.isSubmitted ? 'disabled' : ''}>
+            <span class="quiz-option-badge">T</span>
+            <span class="quiz-option-label">True</span>
+          </label>
+          <label class="quiz-option-card ${falseClass}" for="opt-${q.key}-false">
+            <input type="radio" 
+                   id="opt-${q.key}-false" 
+                   name="quiz-answer-${q.key}" 
+                   value="false" 
+                   class="quiz-option-radio"
+                   ${isFalseSelected ? 'checked' : ''}
+                   ${quizState.isSubmitted ? 'disabled' : ''}>
+            <span class="quiz-option-badge">F</span>
+            <span class="quiz-option-label">False</span>
+          </label>
         </div>
       `;
-    } else {
-      // Subjective text area (Short answer, Debugging, Challenge)
-      const currentText = quizState.answers[q.key] || '';
+    }
+    // 3. Subjective (Short Answer, Debugging, Practical Challenge)
+    else {
+      const currentText = userVal || '';
       qBodyHtml += `
         <div>
-          <textarea class="subjective-input-area" placeholder="Type your notes or solution here to compare with the authoritative model answer after submission...">${escapeHtml(currentText)}</textarea>
-          <p class="subjective-help-note">This question is evaluated against the authoritative textbook model answer during the results review.</p>
+          <textarea class="subjective-input-area" 
+                    placeholder="Type your notes, solution code, or analysis here..."
+                    ${quizState.isSubmitted ? 'readonly' : ''}>${escapeHtml(currentText)}</textarea>
+          <p class="subjective-help-note">Responses are retained in memory. Compare your notes with the authoritative textbook solution during review.</p>
         </div>
       `;
     }
 
+    // Feedback Box if checked or submitted
+    if (isChecked || quizState.isSubmitted) {
+      if (q.isGradable) {
+        const isCorrect = userVal === q.correctAnswer;
+        qBodyHtml += `
+          <div class="quiz-feedback-box ${isCorrect ? 'correct' : 'incorrect'}">
+            <div class="feedback-header">
+              ${isCorrect ? '✓ Correct Answer!' : '✗ Incorrect Response'}
+            </div>
+            <div class="feedback-explanation">
+              ${escapeHtml(q.explanation)}
+            </div>
+          </div>
+        `;
+      } else {
+        const solutionText = q.modelSolution || q.modelAnswer || 'Review the chapter implementation guidelines for this challenge.';
+        qBodyHtml += `
+          <div class="quiz-feedback-box correct">
+            <div class="feedback-header">
+              Authoritative Model Solution &amp; Architectural Analysis
+            </div>
+            <div class="feedback-explanation">
+              <div class="model-solution-code">${escapeHtml(solutionText)}</div>
+            </div>
+          </div>
+        `;
+      }
+    }
+
     container.innerHTML = qBodyHtml;
 
-    // Attach Input Event Listeners
+    // Attach Event Listeners to Answer Choices
     if (q.type === 'mcq') {
-      container.querySelectorAll('.option-card').forEach(card => {
-        card.addEventListener('click', () => {
-          const key = card.getAttribute('data-key');
-          quizState.answers[q.key] = key;
+      container.querySelectorAll('input[type="radio"]').forEach(radio => {
+        radio.addEventListener('change', (e) => {
+          if (quizState.isSubmitted) return;
+          quizState.answers[q.key] = e.target.value;
+          // Reset checked state when answer changes so user can re-check
+          delete quizState.checkedQuestions[q.key];
           renderCurrentQuestion();
           renderQuickPills();
         });
-        card.addEventListener('keydown', (e) => {
-          if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            card.click();
-          }
-        });
       });
     } else if (q.type === 'tf') {
-      container.querySelectorAll('.tf-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-          const val = btn.getAttribute('data-val') === 'true';
-          quizState.answers[q.key] = val;
+      container.querySelectorAll('input[type="radio"]').forEach(radio => {
+        radio.addEventListener('change', (e) => {
+          if (quizState.isSubmitted) return;
+          quizState.answers[q.key] = (e.target.value === 'true');
+          delete quizState.checkedQuestions[q.key];
           renderCurrentQuestion();
           renderQuickPills();
         });
@@ -279,6 +399,7 @@
       const textarea = container.querySelector('.subjective-input-area');
       if (textarea) {
         textarea.addEventListener('input', (e) => {
+          if (quizState.isSubmitted) return;
           quizState.answers[q.key] = e.target.value;
           renderQuickPills();
         });
@@ -292,19 +413,20 @@
     if (prevBtn) {
       prevBtn.disabled = quizState.currentStep === 0;
     }
+
     if (nextBtn) {
       if (quizState.currentStep === total - 1) {
-        nextBtn.innerHTML = `<span>Review & Submit</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>`;
+        nextBtn.innerHTML = `<span>Review &amp; Finish</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>`;
       } else {
-        nextBtn.innerHTML = `<span>Next</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>`;
+        nextBtn.innerHTML = `<span>Next</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>`;
       }
     }
 
-    // Render Quick Navigation Dots
+    // Render Quick Navigation Dots (1 to 25)
     renderQuickPills();
   }
 
-  // Render Jump Dots
+  // Render Jump Dots Bar (1 to 25)
   function renderQuickPills() {
     const container = document.getElementById('quiz-quick-nav-pills');
     if (!container) return;
@@ -317,7 +439,7 @@
       const currentClass = isCurrent ? 'current' : '';
 
       html += `
-        <button class="q-dot-btn ${answeredClass} ${currentClass}" data-step="${idx}" title="Jump to Question ${idx + 1}">
+        <button class="q-dot-btn ${answeredClass} ${currentClass}" data-step="${idx}" title="Jump to Question ${idx + 1}" aria-label="Question ${idx + 1} ${isAnswered ? '(Answered)' : ''}">
           ${idx + 1}
         </button>
       `;
@@ -333,12 +455,14 @@
     });
   }
 
-  // Stepper Button Handlers
-  document.addEventListener('DOMContentLoaded', () => {
+  // Setup Global Quiz Stepper & Navigation Events
+  function setupGlobalQuizEvents() {
     const prevBtn = document.getElementById('quiz-prev-btn');
     const nextBtn = document.getElementById('quiz-next-btn');
     const reviewBtn = document.getElementById('quiz-review-shortcut-btn');
+    const checkBtn = document.getElementById('quiz-check-answer-btn');
 
+    // Previous Button
     if (prevBtn) {
       prevBtn.addEventListener('click', () => {
         if (quizState.currentStep > 0) {
@@ -348,25 +472,97 @@
       });
     }
 
+    // Next Button
     if (nextBtn) {
       nextBtn.addEventListener('click', () => {
         if (quizState.currentStep < quizState.questionsList.length - 1) {
           quizState.currentStep++;
           renderCurrentQuestion();
         } else {
-          openReviewModal();
+          // On last question, transition to Review Screen
+          showReviewView();
         }
       });
     }
 
-    if (reviewBtn) {
-      reviewBtn.addEventListener('click', () => {
-        openReviewModal();
+    // Check Answer Button (Instant validation and explanation)
+    if (checkBtn) {
+      checkBtn.addEventListener('click', () => {
+        const q = quizState.questionsList[quizState.currentStep];
+        const userVal = quizState.answers[q.key];
+
+        if (userVal === undefined || userVal === '') {
+          // Alert user to select an answer first
+          const container = document.getElementById('quiz-stepper-container');
+          let warnEl = container.querySelector('.quiz-feedback-box.warning');
+          if (!warnEl) {
+            warnEl = document.createElement('div');
+            warnEl.className = 'quiz-feedback-box warning';
+            warnEl.innerHTML = '<strong>Selection Required:</strong> Please choose an answer option before checking.';
+            container.appendChild(warnEl);
+          }
+          return;
+        }
+
+        quizState.checkedQuestions[q.key] = true;
+        renderCurrentQuestion();
       });
     }
-  });
 
-  // Setup Review & Submit Modal
+    // Review Shortcut Button
+    if (reviewBtn) {
+      reviewBtn.addEventListener('click', () => {
+        showReviewView();
+      });
+    }
+
+    // Review Screen Action Buttons
+    const reviewReturnBtn = document.getElementById('review-return-quiz-btn');
+    const reviewBottomReturnBtn = document.getElementById('review-bottom-return-btn');
+    const reviewFinishBtn = document.getElementById('review-finish-quiz-btn');
+    const reviewBottomFinishBtn = document.getElementById('review-bottom-finish-btn');
+
+    if (reviewReturnBtn) {
+      reviewReturnBtn.addEventListener('click', () => {
+        showRunnerView();
+        renderCurrentQuestion();
+      });
+    }
+    if (reviewBottomReturnBtn) {
+      reviewBottomReturnBtn.addEventListener('click', () => {
+        showRunnerView();
+        renderCurrentQuestion();
+      });
+    }
+
+    if (reviewFinishBtn) {
+      reviewFinishBtn.addEventListener('click', handleFinishClick);
+    }
+    if (reviewBottomFinishBtn) {
+      reviewBottomFinishBtn.addEventListener('click', handleFinishClick);
+    }
+
+    // Confirmation Modal Handlers
+    setupReviewModal();
+  }
+
+  function handleFinishClick() {
+    const total = quizState.questionsList.length;
+    let answeredCount = 0;
+    quizState.questionsList.forEach(q => {
+      if (quizState.answers[q.key] !== undefined && quizState.answers[q.key] !== '') {
+        answeredCount++;
+      }
+    });
+
+    if (answeredCount < total) {
+      openReviewModal(answeredCount, total);
+    } else {
+      gradeAndShowResults();
+    }
+  }
+
+  // Setup Review & Submit Confirmation Modal
   function setupReviewModal() {
     const modal = document.getElementById('quiz-review-modal');
     const closeBtn = document.getElementById('review-modal-close-btn');
@@ -394,22 +590,98 @@
     }
   }
 
-  function openReviewModal() {
+  function openReviewModal(answeredCount, total) {
     const modal = document.getElementById('quiz-review-modal');
     if (!modal) return;
 
+    document.getElementById('modal-answered-count').textContent = answeredCount;
+    document.getElementById('modal-unanswered-count').textContent = total - answeredCount;
+
+    modal.classList.add('open');
+  }
+
+  // Render Full Question Review Screen
+  function renderReviewScreen() {
+    const listContainer = document.getElementById('review-questions-list');
+    const summaryEl = document.getElementById('review-summary-display');
+    const partEl = document.getElementById('review-part-display');
+    const titleEl = document.getElementById('review-title-display');
+
     const total = quizState.questionsList.length;
     let answeredCount = 0;
+
     quizState.questionsList.forEach(q => {
       if (quizState.answers[q.key] !== undefined && quizState.answers[q.key] !== '') {
         answeredCount++;
       }
     });
 
-    document.getElementById('modal-answered-count').textContent = answeredCount;
-    document.getElementById('modal-unanswered-count').textContent = total - answeredCount;
+    if (summaryEl) {
+      summaryEl.textContent = `You have completed ${answeredCount} of ${total} questions. Click any question below to review or modify your response.`;
+    }
+    if (partEl) {
+      partEl.textContent = `Chapter ${quizState.chapterId} Assessment`;
+    }
+    if (titleEl) {
+      titleEl.textContent = `Question-by-Question Review`;
+    }
 
-    modal.classList.add('open');
+    if (!listContainer) return;
+
+    let itemsHtml = '';
+    quizState.questionsList.forEach((q, idx) => {
+      const userAns = quizState.answers[q.key];
+      const isAnswered = userAns !== undefined && userAns !== '';
+
+      let answerPreviewText = 'Not answered yet';
+      if (isAnswered) {
+        if (q.type === 'mcq') {
+          const opt = q.options.find(o => o.key === userAns);
+          answerPreviewText = `Selected: ${userAns}) ${opt ? opt.text : ''}`;
+        } else if (q.type === 'tf') {
+          answerPreviewText = `Selected: ${userAns ? 'True' : 'False'}`;
+        } else {
+          answerPreviewText = `Response recorded (${userAns.trim().length} chars)`;
+        }
+      }
+
+      itemsHtml += `
+        <div class="review-item-row">
+          <div class="review-item-details">
+            <div class="review-item-meta">
+              <span class="review-q-tag">Q${idx + 1}</span>
+              <span class="review-cat-tag">${q.category}</span>
+              <span class="review-status-pill ${isAnswered ? 'answered' : 'unanswered'}">
+                ${isAnswered ? '✓ Answered' : '○ Unanswered'}
+              </span>
+            </div>
+            <div class="review-item-prompt">${escapeHtml(q.question)}</div>
+            <div class="review-item-ans-preview" style="color: ${isAnswered ? 'var(--color-primary)' : 'var(--text-muted)'};">
+              ${escapeHtml(answerPreviewText)}
+            </div>
+          </div>
+          <div>
+            <button class="btn btn-secondary btn-sm review-jump-btn" data-step="${idx}" aria-label="Go to Question ${idx + 1}">
+              <span>Edit Question ${idx + 1}</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+          </div>
+        </div>
+      `;
+    });
+
+    listContainer.innerHTML = itemsHtml;
+
+    // Attach Jump Handlers to Return to That Specific Question
+    listContainer.querySelectorAll('.review-jump-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const targetStep = parseInt(btn.getAttribute('data-step'), 10);
+        quizState.currentStep = targetStep;
+        showRunnerView();
+        renderCurrentQuestion();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    });
   }
 
   // Grade Quiz & Render Authoritative Results Screen
@@ -435,14 +707,13 @@
     const totalGradable = gradableQuestions.length;
     const scorePercent = totalGradable > 0 ? Math.round((correctCount / totalGradable) * 100) : 100;
 
-    // Hide Runner, Show Results
-    document.getElementById('quiz-runner-view').style.display = 'none';
+    // Show Results View
+    showResultsView();
+
     const resultsView = document.getElementById('quiz-results-view');
-    resultsView.style.display = 'block';
+    if (!resultsView) return;
 
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-
-    // Render Score Hero Card
+    // Determine Performance Headline
     let performanceHeadline = 'Excellent Mastery!';
     let performanceSubline = 'You demonstrated thorough understanding of the technical architecture in this chapter.';
     if (scorePercent < 60) {
@@ -487,13 +758,13 @@
 
         <div class="results-action-bar">
           <button class="btn btn-secondary" id="retry-quiz-btn">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path></svg>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path></svg>
             <span>Retry Quiz</span>
           </button>
           <a href="textbook.html?ch=${quizState.chapterId}" class="btn btn-primary">
-            <span>Return to Chapter ${quizState.chapterId}</span>
+            <span>Read Chapter ${quizState.chapterId} Textbook</span>
           </a>
-          ${quizState.chapterId < 18 ? `
+          ${quizState.chapterId < 19 ? `
             <a href="quiz.html?ch=${quizState.chapterId + 1}" class="btn btn-secondary">
               <span>Next Chapter Quiz (Ch ${quizState.chapterId + 1}) →</span>
             </a>
@@ -502,12 +773,12 @@
       </div>
     `;
 
-    // Render Detailed Question-by-Question Review List
+    // Render Detailed Question-by-Question Review List for ALL 25 questions
     let reviewHtml = `
       <div class="results-review-section">
         <div class="review-section-heading">
           <h3>Question-by-Question Detailed Review</h3>
-          <span style="font-size: 0.85rem; color: var(--text-muted); font-weight: normal;">Authoritative explanations from textbook answer key</span>
+          <span style="font-size: 0.85rem; color: var(--text-muted); font-weight: normal;">Authoritative explanations verified against official FastAPI technical specifications</span>
         </div>
     `;
 
@@ -555,15 +826,15 @@
 
             ${q.explanation ? `
               <div class="review-explanation-box">
-                <strong>Explanation & Key Takeaway:</strong>
+                <strong>Explanation &amp; Technical Reference:</strong>
                 ${escapeHtml(q.explanation)}
               </div>
             ` : ''}
           </div>
         `;
       } else {
-        // Subjective Question Review (Short Answer, Debugging, Challenge)
-        const userNotes = userAns ? userAns.trim() : '(No response entered)';
+        // Subjective Question Review (Short Answer, Debugging, Practical Challenge)
+        const userNotes = (userAns && typeof userAns === 'string') ? userAns.trim() : '(No response entered)';
         const solutionText = q.modelSolution || q.modelAnswer || 'Review the chapter implementation guidelines for this challenge.';
 
         reviewHtml += `
@@ -582,12 +853,12 @@
               </div>
               <div>
                 <div class="ans-col-label">Status:</div>
-                <div class="ans-col-val" style="color: var(--color-info);">Compare with Model Solution below</div>
+                <div class="ans-col-val" style="color: var(--color-primary);">Compare with Model Solution below</div>
               </div>
             </div>
 
             <div class="review-explanation-box">
-              <strong>Official Model Solution & Architectural Analysis:</strong>
+              <strong>Official Model Solution &amp; Architectural Analysis:</strong>
               <div class="model-solution-code">${escapeHtml(solutionText)}</div>
             </div>
           </div>
