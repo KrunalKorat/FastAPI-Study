@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chapter Quizzes & Assessments — FastAPI Study</title>
+  <title>Chapter Quizzes &amp; Assessments — FastAPI Study</title>
   <meta name="description" content="Attempt interactive FastAPI chapter quizzes with instant automated scoring, authoritative explanations, and absolute zero-persistence privacy.">
   
   <!-- CSS Design System -->
@@ -21,16 +21,17 @@
         <div class="brand-badge-icon" aria-hidden="true">F</div>
         <div class="brand-text-wrap">
           <span class="brand-name">FastAPI <span>Study</span></span>
-          <span class="brand-tagline">Textbook & Quiz Book</span>
+          <span class="brand-tagline">Textbook &amp; Quiz Book</span>
         </div>
       </a>
 
       <nav class="main-nav" aria-label="Primary Navigation">
         <a href="index.html" class="nav-link">Home</a>
-        <a href="textbook.html?ch=5" class="nav-link">Read Textbook</a>
-        <a href="quiz.html?ch=5" class="nav-link active">Quizzes</a>
-        <a href="terms.html" class="nav-link">Terms</a>
-        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="textbook.html?ch=1" class="nav-link">Read Textbook</a>
+        <a href="quiz.html?ch=1" class="nav-link active">Quizzes</a>
+        <a href="index.html#curriculum" class="nav-link">Syllabus</a>
+        <a href="index.html#youtube" class="nav-link">Video Curriculum</a>
+        <a href="license.html" class="nav-link">License</a>
         <a href="https://github.com/KrunalKorat/FastAPI-Study" class="nav-link" target="_blank" rel="noopener noreferrer">GitHub</a>
       </nav>
 
@@ -39,10 +40,6 @@
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
           <span>Search</span>
           <kbd>Ctrl+K</kbd>
-        </button>
-
-        <button class="icon-btn theme-toggle-btn" aria-label="Toggle theme">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
         </button>
 
         <button class="icon-btn mobile-menu-btn" aria-label="Open navigation menu">
@@ -63,12 +60,15 @@
       </div>
       <nav class="drawer-links">
         <a href="index.html" class="nav-link">Home</a>
-        <a href="textbook.html?ch=5" class="nav-link">Read Textbook</a>
-        <a href="quiz.html?ch=5" class="nav-link active">Chapter Quizzes</a>
+        <a href="textbook.html?ch=1" class="nav-link">Read Textbook</a>
+        <a href="quiz.html?ch=1" class="nav-link active">Chapter Quizzes</a>
+        <a href="index.html#curriculum" class="nav-link">Course Syllabus</a>
+        <a href="index.html#youtube" class="nav-link">Video Curriculum</a>
+        <a href="license.html" class="nav-link">MIT License</a>
         <a href="terms.html" class="nav-link">Terms and Conditions</a>
         <a href="privacy-policy.html" class="nav-link">Privacy Policy</a>
         <a href="cookies.html" class="nav-link">Cookie Policy</a>
-        <a href="contact.html" class="nav-link">Contact the Creator</a>
+        <a href="contact.html" class="nav-link">Contact</a>
         <a href="https://github.com/KrunalKorat/FastAPI-Study" class="nav-link" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
       </nav>
     </div>
@@ -79,7 +79,7 @@
     <!-- Chapter Quiz Header & Selector Card -->
     <section class="quiz-header-card" aria-label="Quiz Settings">
       <div class="quiz-header-top">
-        <span class="quiz-part-label" id="quiz-part-display">Part 2 — Databases and Core API Development</span>
+        <span class="quiz-part-label" id="quiz-part-display">Part 1 — FastAPI Fundamentals</span>
         <div class="quiz-chapter-selector-wrap">
           <label for="quiz-chapter-select">Select Chapter:</label>
           <select id="quiz-chapter-select" class="quiz-chapter-select" aria-label="Select Chapter Quiz">
@@ -88,7 +88,7 @@
         </div>
       </div>
 
-      <h1 class="quiz-main-title" id="quiz-title-display">Chapter 5: Relational Databases — SQLAlchemy Engine, Sessions & ORM Models</h1>
+      <h1 class="quiz-main-title" id="quiz-title-display">Chapter 1: Getting Started — Web App &amp; REST API Basics</h1>
 
       <div class="quiz-meta-pills">
         <div class="quiz-pill" id="quiz-total-pill">10 MCQs + Assessment</div>
@@ -117,24 +117,18 @@
       </div>
 
       <!-- Stepper Footer Action Controls -->
-      <footer class="quiz-actions-footer">
-        <div class="quiz-quick-nav-pills" id="quiz-quick-nav-pills" aria-label="Question Navigation Dots">
-          <!-- Rendered dynamically by quiz.js -->
-        </div>
-
-        <div style="display: flex; gap: 0.75rem; align-items: center;">
-          <button class="btn btn-secondary btn-sm" id="quiz-prev-btn" disabled>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
-            <span>Previous</span>
-          </button>
-          <button class="btn btn-secondary btn-sm" id="quiz-review-shortcut-btn" title="Review all answers before submitting">
-            <span>Review</span>
-          </button>
-          <button class="btn btn-primary" id="quiz-next-btn">
-            <span>Next</span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
-          </button>
-        </div>
+      <footer class="quiz-footer-actions">
+        <button class="btn btn-secondary btn-sm" id="quiz-prev-btn" disabled>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+          <span>Previous</span>
+        </button>
+        <button class="btn btn-secondary btn-sm" id="quiz-review-shortcut-btn" title="Review all answers before submitting">
+          <span>Review</span>
+        </button>
+        <button class="btn btn-primary btn-sm" id="quiz-next-btn">
+          <span>Next</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
       </footer>
     </section>
 
@@ -145,31 +139,31 @@
   </main>
 
   <!-- Review & Submit Confirmation Modal -->
-  <div class="quiz-modal-backdrop" id="quiz-review-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-    <div class="quiz-modal-card">
-      <div class="modal-header">
-        <h3 id="modal-title">Ready to Submit Quiz?</h3>
-        <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 0;">Review your completion status before calculating your score.</p>
+  <div class="search-modal-backdrop" id="quiz-review-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="search-dialog" style="padding: 1.75rem;">
+      <div style="margin-bottom: 1.25rem;">
+        <h3 id="modal-title" style="font-size: 1.25rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.35rem;">Ready to Submit Quiz?</h3>
+        <p style="font-size: 0.875rem; color: var(--text-secondary); margin: 0;">Review your completion status before calculating your final score.</p>
       </div>
 
-      <div class="modal-summary-grid">
-        <div class="summary-box">
-          <strong id="modal-answered-count">0</strong>
-          <span>Answered</span>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.25rem;">
+        <div style="background: var(--bg-surface-elevated); border: 1px solid var(--border-subtle); padding: 1rem; border-radius: 6px; text-align: center;">
+          <strong id="modal-answered-count" style="display: block; font-size: 1.4rem; color: var(--color-primary);">0</strong>
+          <span style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;">Answered</span>
         </div>
-        <div class="summary-box">
-          <strong id="modal-unanswered-count">0</strong>
-          <span>Unanswered</span>
+        <div style="background: var(--bg-surface-elevated); border: 1px solid var(--border-subtle); padding: 1rem; border-radius: 6px; text-align: center;">
+          <strong id="modal-unanswered-count" style="display: block; font-size: 1.4rem; color: var(--text-muted);">0</strong>
+          <span style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;">Unanswered</span>
         </div>
       </div>
 
-      <p style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.5;">
-        Your score will be computed instantly in browser memory against the authoritative textbook answer key. Responses are never saved to storage or sent across a network.
+      <p style="font-size: 0.8125rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 1.5rem;">
+        Your score will be computed instantly in browser memory against the verified textbook answer key. Responses are never saved to storage or sent across a network.
       </p>
 
-      <div class="modal-actions">
+      <div style="display: flex; justify-content: flex-end; gap: 0.75rem;">
         <button class="btn btn-secondary" id="review-modal-close-btn">Keep Reviewing</button>
-        <button class="btn btn-primary" id="confirm-submit-quiz-btn">Confirm & Grade Quiz</button>
+        <button class="btn btn-primary" id="confirm-submit-quiz-btn">Confirm &amp; Grade</button>
       </div>
     </div>
   </div>
@@ -183,44 +177,38 @@
           <p class="footer-desc">
             An independent, open-source educational digital textbook and interactive quiz platform for mastering FastAPI and modern Python REST API engineering.
           </p>
-          <div class="footer-privacy-pill">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-            <span>Zero-Tracking Guarantee: Quiz attempts and scores are never saved.</span>
-          </div>
         </div>
 
         <div>
           <h4 class="footer-col-title">Navigation</h4>
           <ul class="footer-links">
             <li><a href="index.html">Home</a></li>
-            <li><a href="textbook.html?ch=5">Read the Book</a></li>
-            <li><a href="quiz.html?ch=5">Quizzes</a></li>
+            <li><a href="textbook.html?ch=1">Read Textbook</a></li>
+            <li><a href="quiz.html?ch=1">Quizzes</a></li>
             <li><a href="index.html#curriculum">Course Syllabus</a></li>
+            <li><a href="index.html#youtube">Video Curriculum</a></li>
           </ul>
         </div>
 
         <div>
           <h4 class="footer-col-title">Legal &amp; Policies</h4>
           <ul class="footer-links">
+            <li><a href="license.html">MIT License</a></li>
             <li><a href="terms.html">Terms and Conditions</a></li>
             <li><a href="privacy-policy.html">Privacy Policy</a></li>
             <li><a href="cookies.html">Cookie Policy</a></li>
             <li><a href="#" class="reopen-cookie-preferences">Cookie Preferences</a></li>
-            <li><a href="LICENSE" target="_blank">MIT License</a></li>
           </ul>
         </div>
 
         <div>
           <h4 class="footer-col-title">Open Source &amp; Contact</h4>
-          <ul class="footer-links" style="margin-bottom: 1rem;">
+          <ul class="footer-links" style="margin-bottom: 0.75rem;">
             <li><a href="https://github.com/KrunalKorat/FastAPI-Study" target="_blank" rel="noopener noreferrer">GitHub Repository</a></li>
             <li><a href="https://github.com/KrunalKorat/FastAPI-Study/issues" target="_blank" rel="noopener noreferrer">Report an Issue</a></li>
             <li><a href="contact.html">Contact the Creator</a></li>
           </ul>
-          <a href="mailto:krunalkorat2004@gmail.com" class="footer-contact-link">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-            <span>krunalkorat2004@gmail.com</span>
-          </a>
+          <a href="mailto:krunalkorat2004@gmail.com" class="footer-contact-link">krunalkorat2004@gmail.com</a>
         </div>
       </div>
 

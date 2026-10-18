@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FastAPI Study — Modern Python FastAPI & REST API Engineering</title>
-  <meta name="description" content="A premium digital textbook and interactive quiz platform for mastering FastAPI, SQLAlchemy, OAuth2, Alembic, Docker, and production REST API architecture.">
+  <meta name="description" content="A clean, modern, zero-auth digital textbook and interactive quiz platform for mastering FastAPI, SQLAlchemy, OAuth2, Alembic, Docker, and production REST API architecture.">
   
   <!-- CSS Design System -->
   <link rel="stylesheet" href="assets/css/base.css">
@@ -14,22 +14,6 @@
   <!-- Accessibility Skip Link -->
   <a href="#main-content" class="skip-to-content">Skip to main content</a>
 
-  <!-- Branded Initial Loader -->
-  <div id="site-loader" aria-label="Loading library">
-    <div class="loader-content">
-      <div class="loader-book-icon" aria-hidden="true">
-        <div class="book-spine"></div>
-        <div class="book-page left"></div>
-        <div class="book-page right"></div>
-      </div>
-      <div class="loader-brand">FastAPI <span>Study</span></div>
-      <div class="loader-progress-track">
-        <div class="loader-progress-bar"></div>
-      </div>
-      <div class="loader-subtext">Preparing your library</div>
-    </div>
-  </div>
-
   <!-- Global Header -->
   <header class="site-header" role="banner">
     <div class="header-container">
@@ -37,16 +21,17 @@
         <div class="brand-badge-icon" aria-hidden="true">F</div>
         <div class="brand-text-wrap">
           <span class="brand-name">FastAPI <span>Study</span></span>
-          <span class="brand-tagline">Textbook & Quiz Book</span>
+          <span class="brand-tagline">Textbook &amp; Quiz Book</span>
         </div>
       </a>
 
       <nav class="main-nav" aria-label="Primary Navigation">
         <a href="index.html" class="nav-link active">Home</a>
-        <a href="textbook.html?ch=5" class="nav-link">Read Textbook</a>
-        <a href="quiz.html?ch=5" class="nav-link">Quizzes</a>
-        <a href="terms.html" class="nav-link">Terms</a>
-        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="textbook.html?ch=1" class="nav-link">Read Textbook</a>
+        <a href="quiz.html?ch=1" class="nav-link">Quizzes</a>
+        <a href="#curriculum" class="nav-link">Syllabus</a>
+        <a href="#youtube" class="nav-link">Video Curriculum</a>
+        <a href="license.html" class="nav-link">License</a>
         <a href="https://github.com/KrunalKorat/FastAPI-Study" class="nav-link" target="_blank" rel="noopener noreferrer">GitHub</a>
       </nav>
 
@@ -55,10 +40,6 @@
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
           <span>Search</span>
           <kbd>Ctrl+K</kbd>
-        </button>
-
-        <button class="icon-btn theme-toggle-btn" aria-label="Toggle theme">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
         </button>
 
         <button class="icon-btn mobile-menu-btn" aria-label="Open navigation menu">
@@ -79,12 +60,15 @@
       </div>
       <nav class="drawer-links">
         <a href="index.html" class="nav-link active">Home</a>
-        <a href="textbook.html?ch=5" class="nav-link">Read Textbook</a>
-        <a href="quiz.html?ch=5" class="nav-link">Chapter Quizzes</a>
+        <a href="textbook.html?ch=1" class="nav-link">Read Textbook</a>
+        <a href="quiz.html?ch=1" class="nav-link">Chapter Quizzes</a>
+        <a href="#curriculum" class="nav-link">Course Syllabus</a>
+        <a href="#youtube" class="nav-link">Video Curriculum</a>
+        <a href="license.html" class="nav-link">MIT License</a>
         <a href="terms.html" class="nav-link">Terms and Conditions</a>
         <a href="privacy-policy.html" class="nav-link">Privacy Policy</a>
         <a href="cookies.html" class="nav-link">Cookie Policy</a>
-        <a href="contact.html" class="nav-link">Contact the Creator</a>
+        <a href="contact.html" class="nav-link">Contact</a>
         <a href="https://github.com/KrunalKorat/FastAPI-Study" class="nav-link" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
       </nav>
     </div>
@@ -98,84 +82,83 @@
         <div class="hero-content">
           <div class="hero-badge">
             <span class="hero-badge-dot"></span>
-            <span>Complete Engineering Textbook & Quiz Platform</span>
+            <span>Open Source Educational Textbook &amp; Quiz Platform</span>
           </div>
 
           <h1 id="hero-heading" class="hero-title">
-            Modern Python <em>FastAPI</em> & REST API Engineering
+            Modern Python <em>FastAPI</em> &amp; REST API Engineering
           </h1>
 
           <p class="hero-subtitle">
-            The Complete Textbook & Quiz Book
+            The Complete Digital Textbook &amp; Interactive Quiz System
           </p>
 
           <p class="hero-description">
-            Read your entire 19-chapter digital textbook with rich editorial typography, line-by-line Python explanations, production architectural patterns, and interactive chapter quizzes with zero-tracking privacy.
+            Read all 19 comprehensive chapters directly in your browser with zero logins or paywalls. Study production-ready Python examples, master relational ORM patterns, explore async architectures, and practice with automated quizzes.
           </p>
 
           <div class="hero-actions">
-            <a href="textbook.html?ch=5" class="btn btn-primary btn-lg">
-              <span>Start Reading</span>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            <a href="textbook.html?ch=1" class="btn btn-primary btn-lg">
+              <span>Read Textbook</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
             </a>
             <a href="#curriculum" class="btn btn-secondary btn-lg">
-              <span>Explore Chapters</span>
+              <span>Explore Syllabus</span>
             </a>
-            <a href="quiz.html?ch=5" class="btn btn-outline btn-lg">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
-              <span>Take a Quiz</span>
+            <a href="quiz.html?ch=1" class="btn btn-outline btn-lg">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+              <span>Practice Quizzes</span>
             </a>
           </div>
 
           <div class="hero-meta-strip">
             <div class="meta-item">
               <span class="meta-label">Curriculum</span>
-              <span class="meta-value">19 Chapters</span>
+              <span class="meta-value">19 Complete Chapters</span>
             </div>
             <div class="meta-item">
               <span class="meta-label">Core Parts</span>
               <span class="meta-value">7 Specialized Domains</span>
             </div>
             <div class="meta-item">
-              <span class="meta-label">Assessments</span>
-              <span class="meta-value">140+ Questions</span>
+              <span class="meta-label">Practice</span>
+              <span class="meta-value">190+ Verified Questions</span>
             </div>
             <div class="meta-item">
-              <span class="meta-label">Data Privacy</span>
-              <span class="meta-value">100% In-Memory</span>
+              <span class="meta-label">Access</span>
+              <span class="meta-value">100% Free &amp; Zero-Auth</span>
             </div>
           </div>
         </div>
 
-        <!-- CSS 3D Interactive Book Composition -->
-        <div class="hero-book-wrapper" aria-hidden="true">
-          <div class="book-card-3d">
-            <div class="book-ribbon"></div>
-            <div class="book-front">
-              <div class="book-foil-accent"></div>
-              
-              <div class="book-header-mark">
-                <span class="book-edition-badge">Python 3.11+ / SQLAlchemy 2.0</span>
-                <svg class="book-series-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
-              </div>
-
-              <div class="book-body-center">
-                <div class="book-tag">Full Textbook & Quiz Book</div>
-                <h2 class="book-main-title">Modern Python <span>FastAPI</span> Engineering</h2>
-                <div class="book-main-subtitle">From Relational ORM Architecture to Production Linux & Docker Cloud Deployment</div>
-              </div>
-
-              <div class="book-footer-info">
-                <div class="book-curriculum-count">
-                  <strong>19 CHAPTERS</strong>
-                  <span>Master Syllabus</span>
-                </div>
-                <div class="book-author-mark">
-                  Corey Schafer Series<br>Curriculum Edition
-                </div>
-              </div>
+        <!-- Live Code Card Preview -->
+        <div class="hero-code-card" aria-label="FastAPI Python Code Example">
+          <div class="hero-code-header">
+            <div class="code-window-dots">
+              <span class="code-dot dot-red"></span>
+              <span class="code-dot dot-yellow"></span>
+              <span class="code-dot dot-green"></span>
             </div>
+            <span class="code-file-name">main.py — FastAPI Application</span>
           </div>
+          <pre class="hero-code-body"><code><span class="c-comment"># Chapter 1: Modern FastAPI Architecture</span>
+<span class="c-keyword">from</span> <span class="c-import">fastapi</span> <span class="c-keyword">import</span> FastAPI, status, HTTPException
+<span class="c-keyword">from</span> <span class="c-import">pydantic</span> <span class="c-keyword">import</span> BaseModel
+
+app = FastAPI(title=<span class="c-string">"FastAPI Study API"</span>, version=<span class="c-string">"1.0.0"</span>)
+
+<span class="c-keyword">class</span> <span class="c-function">HealthResponse</span>(BaseModel):
+    status: str
+    chapters_available: int
+    open_access: bool
+
+<span class="c-decorator">@app.get</span>(<span class="c-string">"/health"</span>, response_model=HealthResponse)
+<span class="c-keyword">async def</span> <span class="c-function">health_check</span>():
+    <span class="c-keyword">return</span> {
+        <span class="c-string">"status"</span>: <span class="c-string">"online"</span>,
+        <span class="c-string">"chapters_available"</span>: <span class="c-string">19</span>,
+        <span class="c-string">"open_access"</span>: <span class="c-keyword">True</span>
+    }</code></pre>
         </div>
       </div>
     </section>
@@ -184,34 +167,34 @@
     <section class="pillars-section" aria-labelledby="pillars-heading">
       <div class="pillars-container">
         <div class="section-header-centered">
-          <span class="section-label">Architectural Foundation</span>
-          <h2 id="pillars-heading" class="section-title">Designed for Serious Backend Engineers</h2>
-          <p class="section-desc">Experience an editorial textbook interface built specifically for deep technical focus, hands-on Python code exploration, and uncompromised privacy.</p>
+          <span class="section-label">Educational Principles</span>
+          <h2 id="pillars-heading" class="section-title">Engineered for Technical Mastery</h2>
+          <p class="section-desc">A distraction-free, documentation-focused learning platform built to help Python developers build scalable production APIs.</p>
         </div>
 
         <div class="pillars-grid">
           <div class="pillar-card">
             <div class="pillar-icon-box">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
             </div>
-            <h3 class="pillar-title">Real Digital Book Experience</h3>
-            <p class="pillar-text">Read like a true engineering textbook on a warm ivory canvas with Playfair Display editorial typography, customizable font sizes, width controls, and distraction-free focus mode.</p>
+            <h3 class="pillar-title">19 Complete Chapters</h3>
+            <p class="pillar-text">From core ASGI fundamentals and Pydantic schemas to SQLAlchemy 2.0 ORM, JWT security, Celery background tasks, and Docker deployment.</p>
           </div>
 
           <div class="pillar-card">
             <div class="pillar-icon-box">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 18l6-6-6-6"></path><path d="M8 6l-6 6 6 6"></path></svg>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
             </div>
-            <h3 class="pillar-title">Production Python Examples</h3>
-            <p class="pillar-text">Study battle-tested code: SQLAlchemy 2.0 sessions, asynchronous event loop patterns, modular APIRouter setups, JWT hashing, and multi-stage Dockerfiles with one-click copy buttons.</p>
+            <h3 class="pillar-title">Syntactically Correct Code</h3>
+            <p class="pillar-text">Every code block is carefully explained with terminology, potential error pitfalls, troubleshooting steps, and one-click copy buttons.</p>
           </div>
 
           <div class="pillar-card">
             <div class="pillar-icon-box">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
             </div>
-            <h3 class="pillar-title">Zero-Tracking Absolute Privacy</h3>
-            <p class="pillar-text">Quiz attempts, responses, and scores exist solely in active JavaScript memory. No local storage, cookies, user tracking, or backend database logging. Refresh or leave, and it vanishes.</p>
+            <h3 class="pillar-title">Zero Authentication &amp; Privacy</h3>
+            <p class="pillar-text">No account creation, passwords, or subscription gates. Quiz attempts and answers are graded instantly in-memory without remote database tracking.</p>
           </div>
         </div>
       </div>
@@ -222,16 +205,16 @@
       <div class="curriculum-container">
         <div class="curriculum-header-row">
           <div>
-            <span class="section-label">Master Curriculum</span>
-            <h2 id="curriculum-heading" class="section-title">The 19-Chapter Engineering Syllabus</h2>
-            <p class="section-desc">Structured into 7 logical parts following Corey Schafer's Python FastAPI tutorial series.</p>
+            <span class="section-label">Complete Syllabus</span>
+            <h2 id="curriculum-heading" class="section-title">The 19-Chapter Curriculum</h2>
+            <p class="section-desc">Arranged in logical learning order following Corey Schafer's Python FastAPI tutorial series.</p>
           </div>
           <div class="curriculum-stats-summary">
             <div class="stat-chip">
-              <span><strong>15</strong> Complete Available</span>
+              <span><strong>19</strong> Chapters Ready</span>
             </div>
             <div class="stat-chip">
-              <span><strong>4</strong> Awaiting Content</span>
+              <span><strong>100%</strong> Offline Available</span>
             </div>
           </div>
         </div>
@@ -247,78 +230,81 @@
       <div class="how-it-works-container">
         <div class="privacy-banner-card">
           <div>
-            <span class="section-label" style="color: var(--color-accent-orange);">Guaranteed Privacy</span>
-            <h2 id="privacy-heading" class="privacy-banner-title">Test Your Mastery with <span>Zero Data Footprint</span></h2>
-            <p style="color: #A29E96; font-size: 0.95rem; line-height: 1.6;">FastAPI Study is engineered as an honest, private educational reference. We believe technical study should never require logins, tracking cookies, or surveillance.</p>
+            <span class="section-label">In-Memory Assessment</span>
+            <h2 id="privacy-heading" class="privacy-banner-title">Test Your Understanding with <span>Zero Data Footprint</span></h2>
+            <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; margin-top: 0.5rem;">
+              FastAPI Study believes technical practice should be frictionless and private. You can test your comprehension across every chapter with automated grading and detailed explanations.
+            </p>
           </div>
 
           <ul class="privacy-points-list">
             <li class="privacy-point-item">
               <div class="privacy-point-icon">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
               </div>
               <div class="privacy-point-text">
-                <strong>In-Memory Evaluation Only</strong>
-                <p>Answers are scored instantly in browser memory against authoritative answer keys. No answers are ever sent across a network.</p>
+                <strong>Instant Browser Evaluation</strong>
+                <p>Answers are graded instantaneously against verified answer keys inside your active browser session.</p>
               </div>
             </li>
 
             <li class="privacy-point-item">
               <div class="privacy-point-icon">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
               </div>
               <div class="privacy-point-text">
-                <strong>No Local Storage or Cookies for Quizzes</strong>
-                <p>We do not store test scores in localStorage, IndexedDB, or cookies. When you reload or navigate away, the attempt disappears.</p>
+                <strong>No Tracking or Server Databases</strong>
+                <p>We do not store your quiz scores on a server or track your reading progress. When you close or refresh the tab, state is reset.</p>
               </div>
             </li>
 
             <li class="privacy-point-item">
               <div class="privacy-point-icon">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
               </div>
               <div class="privacy-point-text">
-                <strong>Authoritative Explanations & Model Solutions</strong>
-                <p>Every multiple choice question and code debugging problem includes the original detailed line-by-line architectural breakdown.</p>
+                <strong>Detailed Explanations</strong>
+                <p>Every multiple choice question, debugging challenge, and conceptual question includes an explanation of the underlying mechanism.</p>
               </div>
             </li>
           </ul>
         </div>
       </div>
+    </section>
+
     <!-- Open Source Section -->
     <section class="opensource-section" id="open-source" aria-labelledby="opensource-heading">
       <div class="opensource-container">
         <div class="opensource-card">
           <div class="opensource-content-left">
             <div class="opensource-badge">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path d="M2 12h20"></path></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path d="M2 12h20"></path></svg>
               <span>100% Free &amp; Open Source</span>
             </div>
 
             <h2 id="opensource-heading" class="opensource-title">
-              Built for the Community, <span>Maintained in the Open</span>
+              Built for Developers, <span>Maintained in the Open</span>
             </h2>
 
             <p class="opensource-desc">
-              FastAPI Study is a free, open-source educational resource dedicated to advancing Python API engineering skills. We believe deep architectural knowledge, reproducible examples, and rigorous quizzes should be freely accessible to developers worldwide without paywalls, logins, or tracking.
+              FastAPI Study is released under the permissive MIT License. We welcome contributions, typo fixes, improved architectural diagrams, and code example additions from the developer community.
             </p>
 
             <div class="opensource-actions">
               <a href="https://github.com/KrunalKorat/FastAPI-Study" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-                <span>View Source on GitHub</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                <span>View on GitHub</span>
               </a>
 
-              <a href="https://github.com/KrunalKorat/FastAPI-Study/issues" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
-                <span>Contribute on GitHub</span>
+              <a href="license.html" class="btn btn-secondary">
+                <span>Read MIT License</span>
               </a>
             </div>
 
             <div>
               <a href="https://github.com/KrunalKorat/FastAPI-Study" class="opensource-repo-link" target="_blank" rel="noopener noreferrer">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
-                <span>https://github.com/KrunalKorat/FastAPI-Study</span>
+                <span>github.com/KrunalKorat/FastAPI-Study</span>
               </a>
             </div>
           </div>
@@ -326,31 +312,419 @@
           <div class="opensource-highlights-grid">
             <div class="opensource-item-box">
               <div class="opensource-item-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
               </div>
               <div class="opensource-item-text">
                 <h4>Report Bugs &amp; Errata</h4>
-                <p>Found a typo, outdated code snippet, or explanation that could be clearer? Open an issue on GitHub to help improve curriculum accuracy.</p>
+                <p>Found a typo or an outdated code snippet? Open an issue on GitHub to help keep the curriculum accurate.</p>
               </div>
             </div>
 
             <div class="opensource-item-box">
               <div class="opensource-item-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
               </div>
               <div class="opensource-item-text">
                 <h4>Suggest Improvements &amp; PRs</h4>
-                <p>We welcome community pull requests for code examples, architectural diagrams, quiz question additions, and reader improvements.</p>
+                <p>Community contributions for additional quiz questions, diagrams, and explanations are warmly welcome.</p>
               </div>
             </div>
 
             <div class="opensource-item-box">
               <div class="opensource-item-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
               </div>
               <div class="opensource-item-text">
-                <h4>MIT Licensed</h4>
-                <p>Released under the permissive MIT License. Study, reference, and build upon this educational foundation with complete freedom.</p>
+                <h4>Permissive MIT License</h4>
+                <p>Reference, reuse, and build upon these educational resources freely without licensing headaches.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- YOUTUBE VIDEO CURRICULUM SECTION (ALWAYS AT THE END) -->
+    <section class="youtube-section" id="youtube" aria-labelledby="youtube-heading">
+      <div class="youtube-container">
+        <div class="youtube-header-row">
+          <div>
+            <span class="section-label">Video Learning Companion</span>
+            <h2 id="youtube-heading" class="section-title">YouTube Video Curriculum (19 Modules)</h2>
+            <p class="section-desc">The video tutorial series corresponding directly to the 19 chapters of this textbook.</p>
+          </div>
+        </div>
+
+        <!-- Verified Status Notice -->
+        <div class="youtube-status-notice">
+          <svg class="youtube-status-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+          <div class="youtube-status-text">
+            <h4>Video URLs Pending Instructor Supply</h4>
+            <p>
+              In accordance with project integrity standards, zero YouTube links are fabricated. Once official playlist URLs or video IDs are supplied in project configuration, interactive embeds and direct "Watch on YouTube" links will automatically render here.
+            </p>
+          </div>
+        </div>
+
+        <div class="youtube-grid">
+          <!-- 19 Video Modules in Exact Curriculum Order -->
+          <div class="video-card">
+            <div class="video-card-thumb-placeholder">
+              <div class="video-play-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+              </div>
+              <span class="video-thumb-label">Video Module 1</span>
+            </div>
+            <div class="video-card-body">
+              <div>
+                <span class="video-module-badge">Part 1</span>
+                <h4 class="video-card-title">Getting Started — Web App &amp; REST API Basics</h4>
+              </div>
+              <div class="video-card-footer">
+                <span class="video-status-indicator"><span class="video-status-dot"></span>URL Pending</span>
+                <a href="textbook.html?ch=1" class="btn btn-secondary btn-sm">Read Ch 1</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="video-card">
+            <div class="video-card-thumb-placeholder">
+              <div class="video-play-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+              </div>
+              <span class="video-thumb-label">Video Module 2</span>
+            </div>
+            <div class="video-card-body">
+              <div>
+                <span class="video-module-badge">Part 2</span>
+                <h4 class="video-card-title">Static Files &amp; Jinja2 Templates — SSR</h4>
+              </div>
+              <div class="video-card-footer">
+                <span class="video-status-indicator"><span class="video-status-dot"></span>URL Pending</span>
+                <a href="textbook.html?ch=2" class="btn btn-secondary btn-sm">Read Ch 2</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="video-card">
+            <div class="video-card-thumb-placeholder">
+              <div class="video-play-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+              </div>
+              <span class="video-thumb-label">Video Module 3</span>
+            </div>
+            <div class="video-card-body">
+              <div>
+                <span class="video-module-badge">Part 3</span>
+                <h4 class="video-card-title">Path Parameters — Type Validation &amp; Errors</h4>
+              </div>
+              <div class="video-card-footer">
+                <span class="video-status-indicator"><span class="video-status-dot"></span>URL Pending</span>
+                <a href="textbook.html?ch=3" class="btn btn-secondary btn-sm">Read Ch 3</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="video-card">
+            <div class="video-card-thumb-placeholder">
+              <div class="video-play-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+              </div>
+              <span class="video-thumb-label">Video Module 4</span>
+            </div>
+            <div class="video-card-body">
+              <div>
+                <span class="video-module-badge">Part 4</span>
+                <h4 class="video-card-title">Data Validation &amp; Schemas with Pydantic v2</h4>
+              </div>
+              <div class="video-card-footer">
+                <span class="video-status-indicator"><span class="video-status-dot"></span>URL Pending</span>
+                <a href="textbook.html?ch=4" class="btn btn-secondary btn-sm">Read Ch 4</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="video-card">
+            <div class="video-card-thumb-placeholder">
+              <div class="video-play-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+              </div>
+              <span class="video-thumb-label">Video Module 5</span>
+            </div>
+            <div class="video-card-body">
+              <div>
+                <span class="video-module-badge">Part 5</span>
+                <h4 class="video-card-title">Relational Databases — SQLAlchemy Engine &amp; ORM</h4>
+              </div>
+              <div class="video-card-footer">
+                <span class="video-status-indicator"><span class="video-status-dot"></span>URL Pending</span>
+                <a href="textbook.html?ch=5" class="btn btn-secondary btn-sm">Read Ch 5</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="video-card">
+            <div class="video-card-thumb-placeholder">
+              <div class="video-play-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+              </div>
+              <span class="video-thumb-label">Video Module 6</span>
+            </div>
+            <div class="video-card-body">
+              <div>
+                <span class="video-module-badge">Part 6</span>
+                <h4 class="video-card-title">CRUD Operations — PUT, PATCH &amp; DELETE</h4>
+              </div>
+              <div class="video-card-footer">
+                <span class="video-status-indicator"><span class="video-status-dot"></span>URL Pending</span>
+                <a href="textbook.html?ch=6" class="btn btn-secondary btn-sm">Read Ch 6</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="video-card">
+            <div class="video-card-thumb-placeholder">
+              <div class="video-play-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+              </div>
+              <span class="video-thumb-label">Video Module 7</span>
+            </div>
+            <div class="video-card-body">
+              <div>
+                <span class="video-module-badge">Part 7</span>
+                <h4 class="video-card-title">Asynchronous Python — Concurrency &amp; Event Loop</h4>
+              </div>
+              <div class="video-card-footer">
+                <span class="video-status-indicator"><span class="video-status-dot"></span>URL Pending</span>
+                <a href="textbook.html?ch=7" class="btn btn-secondary btn-sm">Read Ch 7</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="video-card">
+            <div class="video-card-thumb-placeholder">
+              <div class="video-play-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+              </div>
+              <span class="video-thumb-label">Video Module 8</span>
+            </div>
+            <div class="video-card-body">
+              <div>
+                <span class="video-module-badge">Part 8</span>
+                <h4 class="video-card-title">Enterprise Architecture — Modular APIRouter</h4>
+              </div>
+              <div class="video-card-footer">
+                <span class="video-status-indicator"><span class="video-status-dot"></span>URL Pending</span>
+                <a href="textbook.html?ch=8" class="btn btn-secondary btn-sm">Read Ch 8</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="video-card">
+            <div class="video-card-thumb-placeholder">
+              <div class="video-play-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+              </div>
+              <span class="video-thumb-label">Video Module 9</span>
+            </div>
+            <div class="video-card-body">
+              <div>
+                <span class="video-module-badge">Part 9</span>
+                <h4 class="video-card-title">Connecting Frontends — Fetch API &amp; CORS</h4>
+              </div>
+              <div class="video-card-footer">
+                <span class="video-status-indicator"><span class="video-status-dot"></span>URL Pending</span>
+                <a href="textbook.html?ch=9" class="btn btn-secondary btn-sm">Read Ch 9</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="video-card">
+            <div class="video-card-thumb-placeholder">
+              <div class="video-play-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+              </div>
+              <span class="video-thumb-label">Video Module 10</span>
+            </div>
+            <div class="video-card-body">
+              <div>
+                <span class="video-module-badge">Part 10</span>
+                <h4 class="video-card-title">JWT Authentication &amp; Password Hashing</h4>
+              </div>
+              <div class="video-card-footer">
+                <span class="video-status-indicator"><span class="video-status-dot"></span>URL Pending</span>
+                <a href="textbook.html?ch=10" class="btn btn-secondary btn-sm">Read Ch 10</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="video-card">
+            <div class="video-card-thumb-placeholder">
+              <div class="video-play-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+              </div>
+              <span class="video-thumb-label">Video Module 11</span>
+            </div>
+            <div class="video-card-body">
+              <div>
+                <span class="video-module-badge">Part 11</span>
+                <h4 class="video-card-title">Authorization &amp; Role-Based Access Control</h4>
+              </div>
+              <div class="video-card-footer">
+                <span class="video-status-indicator"><span class="video-status-dot"></span>URL Pending</span>
+                <a href="textbook.html?ch=11" class="btn btn-secondary btn-sm">Read Ch 11</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="video-card">
+            <div class="video-card-thumb-placeholder">
+              <div class="video-play-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+              </div>
+              <span class="video-thumb-label">Video Module 12</span>
+            </div>
+            <div class="video-card-body">
+              <div>
+                <span class="video-module-badge">Part 12</span>
+                <h4 class="video-card-title">File Uploads &amp; Pillow Media Resizing</h4>
+              </div>
+              <div class="video-card-footer">
+                <span class="video-status-indicator"><span class="video-status-dot"></span>URL Pending</span>
+                <a href="textbook.html?ch=12" class="btn btn-secondary btn-sm">Read Ch 12</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="video-card">
+            <div class="video-card-thumb-placeholder">
+              <div class="video-play-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+              </div>
+              <span class="video-thumb-label">Video Module 13</span>
+            </div>
+            <div class="video-card-body">
+              <div>
+                <span class="video-module-badge">Part 13</span>
+                <h4 class="video-card-title">Query Pagination, Filtering &amp; Search</h4>
+              </div>
+              <div class="video-card-footer">
+                <span class="video-status-indicator"><span class="video-status-dot"></span>URL Pending</span>
+                <a href="textbook.html?ch=13" class="btn btn-secondary btn-sm">Read Ch 13</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="video-card">
+            <div class="video-card-thumb-placeholder">
+              <div class="video-play-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+              </div>
+              <span class="video-thumb-label">Video Module 14</span>
+            </div>
+            <div class="video-card-body">
+              <div>
+                <span class="video-module-badge">Part 14</span>
+                <h4 class="video-card-title">Background Tasks &amp; Non-Blocking Emails</h4>
+              </div>
+              <div class="video-card-footer">
+                <span class="video-status-indicator"><span class="video-status-dot"></span>URL Pending</span>
+                <a href="textbook.html?ch=14" class="btn btn-secondary btn-sm">Read Ch 14</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="video-card">
+            <div class="video-card-thumb-placeholder">
+              <div class="video-play-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+              </div>
+              <span class="video-thumb-label">Video Module 15</span>
+            </div>
+            <div class="video-card-body">
+              <div>
+                <span class="video-module-badge">Part 15</span>
+                <h4 class="video-card-title">PostgreSQL &amp; Alembic Database Migrations</h4>
+              </div>
+              <div class="video-card-footer">
+                <span class="video-status-indicator"><span class="video-status-dot"></span>URL Pending</span>
+                <a href="textbook.html?ch=15" class="btn btn-secondary btn-sm">Read Ch 15</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="video-card">
+            <div class="video-card-thumb-placeholder">
+              <div class="video-play-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+              </div>
+              <span class="video-thumb-label">Video Module 16</span>
+            </div>
+            <div class="video-card-body">
+              <div>
+                <span class="video-module-badge">Part 16</span>
+                <h4 class="video-card-title">Amazon S3 Cloud Object Storage via Boto3</h4>
+              </div>
+              <div class="video-card-footer">
+                <span class="video-status-indicator"><span class="video-status-dot"></span>URL Pending</span>
+                <a href="textbook.html?ch=16" class="btn btn-secondary btn-sm">Read Ch 16</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="video-card">
+            <div class="video-card-thumb-placeholder">
+              <div class="video-play-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+              </div>
+              <span class="video-thumb-label">Video Module 17</span>
+            </div>
+            <div class="video-card-body">
+              <div>
+                <span class="video-module-badge">Part 17</span>
+                <h4 class="video-card-title">Enterprise Testing — Pytest &amp; AsyncClient</h4>
+              </div>
+              <div class="video-card-footer">
+                <span class="video-status-indicator"><span class="video-status-dot"></span>URL Pending</span>
+                <a href="textbook.html?ch=17" class="btn btn-secondary btn-sm">Read Ch 17</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="video-card">
+            <div class="video-card-thumb-placeholder">
+              <div class="video-play-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+              </div>
+              <span class="video-thumb-label">Video Module 18</span>
+            </div>
+            <div class="video-card-body">
+              <div>
+                <span class="video-module-badge">Part 18</span>
+                <h4 class="video-card-title">Linux Production VPS — Nginx, Systemd &amp; SSL</h4>
+              </div>
+              <div class="video-card-footer">
+                <span class="video-status-indicator"><span class="video-status-dot"></span>URL Pending</span>
+                <a href="textbook.html?ch=18" class="btn btn-secondary btn-sm">Read Ch 18</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="video-card">
+            <div class="video-card-thumb-placeholder">
+              <div class="video-play-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+              </div>
+              <span class="video-thumb-label">Video Module 19</span>
+            </div>
+            <div class="video-card-body">
+              <div>
+                <span class="video-module-badge">Part 19</span>
+                <h4 class="video-card-title">Docker Containerization &amp; Docker Compose</h4>
+              </div>
+              <div class="video-card-footer">
+                <span class="video-status-indicator"><span class="video-status-dot"></span>URL Pending</span>
+                <a href="textbook.html?ch=19" class="btn btn-secondary btn-sm">Read Ch 19</a>
               </div>
             </div>
           </div>
@@ -368,44 +742,38 @@
           <p class="footer-desc">
             An independent, open-source educational digital textbook and interactive quiz platform for mastering FastAPI and modern Python REST API engineering.
           </p>
-          <div class="footer-privacy-pill">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-            <span>Zero-Tracking Guarantee: Quiz attempts and scores are never saved.</span>
-          </div>
         </div>
 
         <div>
           <h4 class="footer-col-title">Navigation</h4>
           <ul class="footer-links">
             <li><a href="index.html">Home</a></li>
-            <li><a href="textbook.html?ch=5">Read the Book</a></li>
-            <li><a href="quiz.html?ch=5">Quizzes</a></li>
+            <li><a href="textbook.html?ch=1">Read Textbook</a></li>
+            <li><a href="quiz.html?ch=1">Quizzes</a></li>
             <li><a href="#curriculum">Course Syllabus</a></li>
+            <li><a href="#youtube">Video Curriculum</a></li>
           </ul>
         </div>
 
         <div>
           <h4 class="footer-col-title">Legal &amp; Policies</h4>
           <ul class="footer-links">
+            <li><a href="license.html">MIT License</a></li>
             <li><a href="terms.html">Terms and Conditions</a></li>
             <li><a href="privacy-policy.html">Privacy Policy</a></li>
             <li><a href="cookies.html">Cookie Policy</a></li>
             <li><a href="#" class="reopen-cookie-preferences">Cookie Preferences</a></li>
-            <li><a href="LICENSE" target="_blank">MIT License</a></li>
           </ul>
         </div>
 
         <div>
           <h4 class="footer-col-title">Open Source &amp; Contact</h4>
-          <ul class="footer-links" style="margin-bottom: 1rem;">
+          <ul class="footer-links" style="margin-bottom: 0.75rem;">
             <li><a href="https://github.com/KrunalKorat/FastAPI-Study" target="_blank" rel="noopener noreferrer">GitHub Repository</a></li>
             <li><a href="https://github.com/KrunalKorat/FastAPI-Study/issues" target="_blank" rel="noopener noreferrer">Report an Issue</a></li>
             <li><a href="contact.html">Contact the Creator</a></li>
           </ul>
-          <a href="mailto:krunalkorat2004@gmail.com" class="footer-contact-link">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-            <span>krunalkorat2004@gmail.com</span>
-          </a>
+          <a href="mailto:krunalkorat2004@gmail.com" class="footer-contact-link">krunalkorat2004@gmail.com</a>
         </div>
       </div>
 
@@ -426,9 +794,7 @@
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
         </button>
       </div>
-      <div class="search-results-container" id="search-results">
-        <!-- Results or suggestions populated via search.js -->
-      </div>
+      <div class="search-results-container" id="search-results"></div>
       <div class="search-dialog-footer">
         <div class="search-shortcuts">
           <span><kbd>↑</kbd> <kbd>↓</kbd> to navigate</span>
@@ -469,8 +835,8 @@
                 <h3 class="part-title-text">${part.title}</h3>
                 <p class="part-desc-text">${part.description}</p>
               </div>
-              <div class="part-chapters-count">
-                ${partChapters.length} Chapters (${availCount > 0 ? `${availCount} Available` : 'Awaiting Content'})
+              <div class="part-chapters-count" style="font-size: 0.8125rem; font-weight: 600; color: var(--color-primary);">
+                ${partChapters.length} Chapters Available
               </div>
             </div>
 
@@ -478,15 +844,10 @@
         `;
 
         partChapters.forEach(ch => {
-          const availTag = ch.available
-            ? `<span class="chapter-availability-tag available">Available Content</span>`
-            : `<span class="chapter-availability-tag pending">Awaiting Content</span>`;
-
           const quizBadge = ch.quiz
-            ? `<span class="stat-chip" style="font-size: 0.72rem; padding: 2px 7px;">${ch.quiz.mcqs.length} MCQs & Quiz</span>`
+            ? `<span class="stat-chip" style="font-size: 0.72rem; padding: 2px 7px;">${ch.quiz.mcqs.length} MCQs &amp; Quiz</span>`
             : '';
 
-          // Topic preview from sections
           let topicsPreview = '';
           if (ch.sections && ch.sections.length > 0) {
             topicsPreview = `<ul class="chapter-preview-topics">`;
@@ -494,16 +855,14 @@
               topicsPreview += `<li>${sec.title}</li>`;
             });
             topicsPreview += `</ul>`;
-          } else if (!ch.available) {
-            topicsPreview = `<p style="font-size: 0.8rem; color: var(--text-muted); font-style: italic;">Source text not included in current source files. Title reserved in syllabus.</p>`;
           }
 
           html += `
-            <div class="chapter-card ${ch.available ? '' : 'unavailable'}">
+            <div class="chapter-card">
               <div>
                 <div class="chapter-card-top">
                   <span class="chapter-num-badge">CH ${String(ch.id).padStart(2, '0')}</span>
-                  ${availTag}
+                  <span class="chapter-availability-tag available">Available</span>
                 </div>
                 <h4 class="chapter-title">${ch.cleanTitle}</h4>
                 <div class="chapter-video-ref">${ch.videoRef}</div>
@@ -516,8 +875,8 @@
                   ${quizBadge}
                 </div>
                 <div class="chapter-actions-group">
-                  <a href="textbook.html?ch=${ch.id}" class="btn btn-secondary btn-sm">Read</a>
-                  ${ch.quiz ? `<a href="quiz.html?ch=${ch.id}" class="btn btn-outline btn-sm">Quiz</a>` : ''}
+                  <a href="textbook.html?ch=${ch.id}" class="btn btn-primary btn-sm">Read</a>
+                  ${ch.quiz ? `<a href="quiz.html?ch=${ch.id}" class="btn btn-secondary btn-sm">Quiz</a>` : ''}
                 </div>
               </div>
             </div>

@@ -13,7 +13,7 @@
 
   // Strictly in-memory state: cleared on reload or chapter change
   let quizState = {
-    chapterId: 5,
+    chapterId: 1,
     questionsList: [],
     answers: {},       // questionKey -> value
     currentStep: 0,
@@ -29,10 +29,10 @@
     // Parse URL parameter ?ch=X
     const urlParams = new URLSearchParams(window.location.search);
     const chParam = parseInt(urlParams.get('ch'), 10);
-    if (!isNaN(chParam) && chParam >= 5 && chParam <= 18) {
+    if (!isNaN(chParam) && chParam >= 1 && chParam <= 19) {
       quizState.chapterId = chParam;
     } else {
-      quizState.chapterId = 5;
+      quizState.chapterId = 1;
     }
 
     // Populate Chapter Selector Dropdown

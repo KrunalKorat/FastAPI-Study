@@ -7,7 +7,7 @@
 (function () {
   'use strict';
 
-  let currentChapterId = 5; // Default to first available chapter
+  let currentChapterId = 1; // Default to Chapter 1
   const FONT_SIZES = ['0.95rem', '1.05rem', '1.18rem', '1.3rem'];
   let currentFontSizeIdx = 1;
 
@@ -17,6 +17,18 @@
   function initReader() {
     if (!window.FASTAPI_STUDY_DATA) {
       console.error('FastAPI Study data pack not loaded!');
+      const canvas = document.getElementById('reader-article-content');
+      if (canvas) {
+        canvas.innerHTML = `
+          <div class="unavailable-chapter-banner">
+            <div class="banner-text-content">
+              <h3>Content Data Not Loaded</h3>
+              <p>The local textbook dataset could not be initialized. Please verify that <code>assets/content/textbook-content.js</code> is loaded correctly.</p>
+              <a href="index.html" class="btn btn-primary btn-sm">Return Home</a>
+            </div>
+          </div>
+        `;
+      }
       return;
     }
 
@@ -43,14 +55,14 @@
     // Listen for PopState (Back/Forward browser buttons)
     window.addEventListener('popstate', (e) => {
       const params = new URLSearchParams(window.location.search);
-      const ch = parseInt(params.get('ch'), 10) || 5;
+      const ch = parseInt(params.get('ch'), 10) || 1;
       if (ch !== currentChapterId) {
         currentChapterId = ch;
         loadChapter(currentChapterId, false);
       }
     });
 
-    // Check if URL has hash anchor (e.g. #ch5-section-slug)
+    // Check if URL has hash anchor (e.g. #ch1-section-slug)
     if (window.location.hash) {
       setTimeout(() => {
         const target = document.querySelector(window.location.hash);
@@ -169,7 +181,21 @@
   function loadChapter(chapterId, scrollToTop = true) {
     const chapters = window.FASTAPI_STUDY_DATA.chapters;
     const chapter = chapters.find(c => c.id === chapterId);
-    if (!chapter) return;
+    if (!chapter) {
+      const canvas = document.getElementById('reader-article-content');
+      if (canvas) {
+        canvas.innerHTML = `
+          <div class="unavailable-chapter-banner">
+            <div class="banner-text-content">
+              <h3>Chapter Not Found</h3>
+              <p>Chapter ${chapterId} could not be located in the curriculum catalog.</p>
+              <a href="textbook.html?ch=1" class="btn btn-primary btn-sm">Load Chapter 1</a>
+            </div>
+          </div>
+        `;
+      }
+      return;
+    }
 
     // Update Browser Document Title
     document.title = `Chapter ${chapter.id}: ${chapter.cleanTitle} — FastAPI Study`;
@@ -179,7 +205,6 @@
     const activeItem = document.getElementById(`toc-item-${chapter.id}`);
     if (activeItem) {
       activeItem.classList.add('active');
-      // Ensure its parent group is expanded
       const parentGroup = activeItem.closest('.toc-part-group');
       if (parentGroup) {
         parentGroup.classList.remove('collapsed');
@@ -219,35 +244,20 @@
       </header>
     `;
 
-    // If Chapter is Unavailable (Chapters 1-4)
-    if (!chapter.available) {
+    // Render Body Content
+    contentHtml += `<div class="reader-body">${chapter.htmlContent}</div>`;
+
+    // Launch Quiz Banner if quiz exists
+    if (chapter.quiz) {
       contentHtml += `
-        <div class="unavailable-chapter-banner">
-          <svg class="banner-warning-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
-          <div class="banner-text-content">
-            <h3>Content Awaiting Upload</h3>
-            <p>${chapter.missingNotice}</p>
-            <p>You can proceed to read <strong>Chapter 5: Relational Databases</strong> and subsequent complete chapters available right now in the library.</p>
-            <a href="textbook.html?ch=5" class="btn btn-primary btn-sm" style="margin-top: 0.5rem; display: inline-flex;">Go to Chapter 5 →</a>
+        <div class="quiz-launch-banner">
+          <div class="quiz-launch-text">
+            <h3>Test Your Knowledge on Chapter ${chapter.id}</h3>
+            <p>Practice 10 multiple-choice questions, debugging problems, and coding assessments with instant automated grading and absolute zero-tracking privacy.</p>
           </div>
+          <a href="quiz.html?ch=${chapter.id}" class="btn btn-primary btn-lg">Launch Chapter Quiz →</a>
         </div>
       `;
-    } else {
-      // Full Available Chapter Body Content
-      contentHtml += `<div class="reader-body">${chapter.htmlContent}</div>`;
-
-      // Launch Quiz Card if quiz exists
-      if (chapter.quiz) {
-        contentHtml += `
-          <div class="quiz-launch-banner">
-            <div class="quiz-launch-text">
-              <h3>Test Your Mastery on Chapter ${chapter.id}</h3>
-              <p>Practice 10 multiple-choice questions, debugging problems, and coding assessments with instant automated grading and absolute zero-tracking privacy.</p>
-            </div>
-            <a href="quiz.html?ch=${chapter.id}" class="btn btn-primary btn-lg">Launch Chapter Quiz →</a>
-          </div>
-        `;
-      }
     }
 
     // Bottom Navigation (Prev Chapter / Next Chapter)
@@ -268,14 +278,19 @@
             <span class="nav-dir-label" style="text-align: right;">Next Chapter →</span>
             <span class="nav-dir-title" style="text-align: right;">Ch ${nextCh.id}: ${nextCh.cleanTitle}</span>
           </a>
-        ` : '<div></div>'}
+        ` : `
+          <a href="index.html#youtube" class="nav-direction-card next-card">
+            <span class="nav-dir-label" style="text-align: right;">Course Completion →</span>
+            <span class="nav-dir-title" style="text-align: right;">19-Part Video Curriculum</span>
+          </a>
+        `}
       </nav>
     `;
 
     canvas.innerHTML = contentHtml;
 
     // Attach footer direction card handlers
-    canvas.querySelectorAll('.nav-direction-card').forEach(card => {
+    canvas.querySelectorAll('.nav-direction-card[data-ch-id]').forEach(card => {
       card.addEventListener('click', (e) => {
         e.preventDefault();
         const nextId = parseInt(card.getAttribute('data-ch-id'), 10);
@@ -405,7 +420,7 @@
         const subLinks = document.querySelectorAll('.toc-sub-link');
         subLinks.forEach(link => {
           if (link.getAttribute('data-target-id') === currentSectionId) {
-            link.style.color = 'var(--color-accent-orange)';
+            link.style.color = 'var(--color-primary)';
             link.style.fontWeight = '600';
           } else {
             link.style.color = '';
