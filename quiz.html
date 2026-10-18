@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter Quizzes & Assessments — FastAPI Study</title>
+  <meta name="description" content="Attempt interactive FastAPI chapter quizzes with instant automated scoring, authoritative explanations, and absolute zero-persistence privacy.">
+  
+  <!-- CSS Design System -->
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/quiz.css">
+</head>
+<body>
+  <!-- Accessibility Skip Link -->
+  <a href="#main-content" class="skip-to-content">Skip to quiz</a>
+
+  <!-- Global Header -->
+  <header class="site-header" role="banner">
+    <div class="header-container">
+      <a href="index.html" class="brand-link" aria-label="FastAPI Study Home">
+        <div class="brand-badge-icon" aria-hidden="true">F</div>
+        <div class="brand-text-wrap">
+          <span class="brand-name">FastAPI <span>Study</span></span>
+          <span class="brand-tagline">Textbook & Quiz Book</span>
+        </div>
+      </a>
+
+      <nav class="main-nav" aria-label="Primary Navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="textbook.html?ch=5" class="nav-link">Read Textbook</a>
+        <a href="quiz.html?ch=5" class="nav-link active">Quizzes</a>
+        <a href="terms.html" class="nav-link">Terms</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="https://github.com/KrunalKorat/FastAPI-Study" class="nav-link" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="search-trigger-btn" aria-label="Search textbook content (Press Ctrl+K)">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <span>Search</span>
+          <kbd>Ctrl+K</kbd>
+        </button>
+
+        <button class="icon-btn theme-toggle-btn" aria-label="Toggle theme">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+
+        <button class="icon-btn mobile-menu-btn" aria-label="Open navigation menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer -->
+  <div class="mobile-nav-drawer" id="mobile-drawer" role="dialog" aria-modal="true" aria-label="Navigation Menu">
+    <div class="mobile-drawer-sheet">
+      <div class="drawer-header">
+        <div class="brand-name">FastAPI <span>Study</span></div>
+        <button class="icon-btn drawer-close-btn" aria-label="Close navigation menu">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+      <nav class="drawer-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="textbook.html?ch=5" class="nav-link">Read Textbook</a>
+        <a href="quiz.html?ch=5" class="nav-link active">Chapter Quizzes</a>
+        <a href="terms.html" class="nav-link">Terms and Conditions</a>
+        <a href="privacy-policy.html" class="nav-link">Privacy Policy</a>
+        <a href="cookies.html" class="nav-link">Cookie Policy</a>
+        <a href="contact.html" class="nav-link">Contact the Creator</a>
+        <a href="https://github.com/KrunalKorat/FastAPI-Study" class="nav-link" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Main Quiz Container -->
+  <main class="quiz-page-container" id="main-content">
+    <!-- Chapter Quiz Header & Selector Card -->
+    <section class="quiz-header-card" aria-label="Quiz Settings">
+      <div class="quiz-header-top">
+        <span class="quiz-part-label" id="quiz-part-display">Part 2 — Databases and Core API Development</span>
+        <div class="quiz-chapter-selector-wrap">
+          <label for="quiz-chapter-select">Select Chapter:</label>
+          <select id="quiz-chapter-select" class="quiz-chapter-select" aria-label="Select Chapter Quiz">
+            <!-- Populated dynamically by quiz.js -->
+          </select>
+        </div>
+      </div>
+
+      <h1 class="quiz-main-title" id="quiz-title-display">Chapter 5: Relational Databases — SQLAlchemy Engine, Sessions & ORM Models</h1>
+
+      <div class="quiz-meta-pills">
+        <div class="quiz-pill" id="quiz-total-pill">10 MCQs + Assessment</div>
+        <div class="quiz-pill privacy">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          <span>100% In-Memory Privacy (Zero Persistence)</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quiz Stepper Runner View -->
+    <section id="quiz-runner-view" class="quiz-stepper-box" aria-label="Active Quiz Questions">
+      <div class="quiz-progress-header">
+        <div class="quiz-step-info-row">
+          <span id="quiz-step-counter">Question 1 of 10</span>
+          <span class="quiz-category-tag" id="quiz-step-category">Multiple-Choice Question</span>
+        </div>
+        <div class="quiz-progress-track" aria-hidden="true">
+          <div class="quiz-progress-fill" id="quiz-progress-fill"></div>
+        </div>
+      </div>
+
+      <!-- Active Question Container -->
+      <div class="quiz-question-body" id="quiz-stepper-container">
+        <!-- Rendered dynamically by quiz.js -->
+      </div>
+
+      <!-- Stepper Footer Action Controls -->
+      <footer class="quiz-actions-footer">
+        <div class="quiz-quick-nav-pills" id="quiz-quick-nav-pills" aria-label="Question Navigation Dots">
+          <!-- Rendered dynamically by quiz.js -->
+        </div>
+
+        <div style="display: flex; gap: 0.75rem; align-items: center;">
+          <button class="btn btn-secondary btn-sm" id="quiz-prev-btn" disabled>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            <span>Previous</span>
+          </button>
+          <button class="btn btn-secondary btn-sm" id="quiz-review-shortcut-btn" title="Review all answers before submitting">
+            <span>Review</span>
+          </button>
+          <button class="btn btn-primary" id="quiz-next-btn">
+            <span>Next</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </button>
+        </div>
+      </footer>
+    </section>
+
+    <!-- Quiz Results View (Shown after submission) -->
+    <section id="quiz-results-view" class="quiz-results-container" style="display: none;" aria-label="Quiz Results and Review">
+      <!-- Rendered dynamically by quiz.js -->
+    </section>
+  </main>
+
+  <!-- Review & Submit Confirmation Modal -->
+  <div class="quiz-modal-backdrop" id="quiz-review-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="quiz-modal-card">
+      <div class="modal-header">
+        <h3 id="modal-title">Ready to Submit Quiz?</h3>
+        <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 0;">Review your completion status before calculating your score.</p>
+      </div>
+
+      <div class="modal-summary-grid">
+        <div class="summary-box">
+          <strong id="modal-answered-count">0</strong>
+          <span>Answered</span>
+        </div>
+        <div class="summary-box">
+          <strong id="modal-unanswered-count">0</strong>
+          <span>Unanswered</span>
+        </div>
+      </div>
+
+      <p style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.5;">
+        Your score will be computed instantly in browser memory against the authoritative textbook answer key. Responses are never saved to storage or sent across a network.
+      </p>
+
+      <div class="modal-actions">
+        <button class="btn btn-secondary" id="review-modal-close-btn">Keep Reviewing</button>
+        <button class="btn btn-primary" id="confirm-submit-quiz-btn">Confirm & Grade Quiz</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Global Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-container">
+      <div class="footer-top">
+        <div class="footer-brand-col">
+          <div class="footer-brand">FastAPI <span>Study</span></div>
+          <p class="footer-desc">
+            An independent, open-source educational digital textbook and interactive quiz platform for mastering FastAPI and modern Python REST API engineering.
+          </p>
+          <div class="footer-privacy-pill">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            <span>Zero-Tracking Guarantee: Quiz attempts and scores are never saved.</span>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="textbook.html?ch=5">Read the Book</a></li>
+            <li><a href="quiz.html?ch=5">Quizzes</a></li>
+            <li><a href="index.html#curriculum">Course Syllabus</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Legal &amp; Policies</h4>
+          <ul class="footer-links">
+            <li><a href="terms.html">Terms and Conditions</a></li>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="cookies.html">Cookie Policy</a></li>
+            <li><a href="#" class="reopen-cookie-preferences">Cookie Preferences</a></li>
+            <li><a href="LICENSE" target="_blank">MIT License</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Open Source &amp; Contact</h4>
+          <ul class="footer-links" style="margin-bottom: 1rem;">
+            <li><a href="https://github.com/KrunalKorat/FastAPI-Study" target="_blank" rel="noopener noreferrer">GitHub Repository</a></li>
+            <li><a href="https://github.com/KrunalKorat/FastAPI-Study/issues" target="_blank" rel="noopener noreferrer">Report an Issue</a></li>
+            <li><a href="contact.html">Contact the Creator</a></li>
+          </ul>
+          <a href="mailto:krunalkorat2004@gmail.com" class="footer-contact-link">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            <span>krunalkorat2004@gmail.com</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; <span id="current-year">2026</span> FastAPI Study. Released under the MIT License.</div>
+        <div>Not affiliated with or endorsed by FastAPI or Tiangolo. Based on Corey Schafer's tutorial series.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Search Modal -->
+  <div class="search-modal-backdrop" id="search-modal" role="dialog" aria-modal="true" aria-label="Search textbook content">
+    <div class="search-dialog">
+      <div class="search-input-header">
+        <svg class="search-input-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <input type="text" id="search-input" class="search-main-input" placeholder="Search chapters, Python code, section titles, or topics..." autocomplete="off">
+        <button class="icon-btn search-close-btn" aria-label="Close search">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+      <div class="search-results-container" id="search-results"></div>
+      <div class="search-dialog-footer">
+        <div class="search-shortcuts">
+          <span><kbd>↑</kbd> <kbd>↓</kbd> to navigate</span>
+          <span><kbd>Enter</kbd> to open</span>
+          <span><kbd>Esc</kbd> to close</span>
+        </div>
+        <span>FastAPI Study Client Search</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="assets/content/textbook-content.js"></script>
+  <script src="assets/js/animations.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/search.js"></script>
+  <script src="assets/js/quiz.js"></script>
+</body>
+</html>

@@ -1,0 +1,257 @@
+/* ==========================================================================
+   FASTAPI STUDY — TERMS & CONTACT PAGES STYLES (pages.css)
+   ========================================================================== */
+
+.page-wrapper {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem 6rem;
+  width: 100%;
+}
+
+.page-header-block {
+  text-align: center;
+  margin-bottom: 3.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.page-badge-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-accent-orange);
+  background: var(--color-accent-orange-light);
+  padding: 0.35rem 0.85rem;
+  border-radius: 20px;
+}
+
+.page-main-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.15;
+}
+
+.page-lead-text {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  max-width: 620px;
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   TERMS AND CONDITIONS LAYOUT
+   ========================================================================== */
+.terms-card-container {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 14px;
+  padding: 3rem 2.5rem;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.terms-meta-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border-subtle);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.terms-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.terms-section-title {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.terms-section-num {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  color: var(--color-accent-orange);
+}
+
+.terms-paragraph {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 0.5rem;
+}
+
+.terms-callout-pill {
+  background: var(--bg-surface-elevated);
+  border-left: 3px solid var(--color-accent-orange);
+  padding: 1rem 1.25rem;
+  border-radius: 0 8px 8px 0;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   CONTACT THE CREATOR LAYOUT
+   ========================================================================== */
+.contact-container {
+  max-width: 840px;
+  margin: 0 auto;
+}
+
+.contact-hero-card {
+  background: linear-gradient(135deg, var(--bg-surface) 0%, var(--bg-surface-elevated) 100%);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  padding: 3.5rem 2.5rem;
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 2rem;
+}
+
+.contact-mail-icon-wrap {
+  width: 72px;
+  height: 72px;
+  border-radius: 18px;
+  background: var(--color-accent-orange-light);
+  color: var(--color-accent-orange);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-sm);
+}
+
+.contact-details-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.contact-email-display {
+  font-family: var(--font-mono);
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  font-weight: 700;
+  color: var(--color-accent-orange);
+  text-decoration: none;
+  padding: 0.4rem 1rem;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  transition: all var(--transition-fast);
+  word-break: break-all;
+}
+
+.contact-email-display:hover {
+  border-color: var(--color-accent-orange);
+  box-shadow: 0 4px 12px rgba(240, 100, 66, 0.2);
+  transform: translateY(-2px);
+}
+
+.contact-action-buttons {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.contact-notice-box {
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: 10px;
+  padding: 1.25rem 1.75rem;
+  max-width: 620px;
+  text-align: left;
+}
+
+.contact-notice-box h4 {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  margin-bottom: 0.35rem;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.contact-notice-box p {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+.contact-reasons-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.reason-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 1.8rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: transform var(--transition-fast), border-color var(--transition-fast);
+}
+
+.reason-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--color-accent-orange);
+}
+
+.reason-card h4 {
+  font-size: 1rem;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.reason-card p {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  margin-bottom: 0;
+}
+
+/* ==========================================================================
+   RESPONSIVE BREAKPOINTS (pages.css)
+   ========================================================================== */
+@media (max-width: 768px) {
+  .terms-card-container {
+    padding: 2rem 1.5rem;
+  }
+  .contact-hero-card {
+    padding: 2.5rem 1.5rem;
+  }
+  .contact-reasons-grid {
+    grid-template-columns: 1fr;
+  }
+}
